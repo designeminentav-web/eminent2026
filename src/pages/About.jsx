@@ -16,21 +16,22 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
+
+// IMAGE IMPORTS
 import ceo from "../assets/brand/ceo.png";
-import manager from"../assets/brand/manager.jpeg";
+import manager from "../assets/brand/manager.jpeg";
 import sales from "../assets/brand/sales.JPG";
 import presales from "../assets/brand/presales.png";
 import amar from "../assets/brand/amar.png";
 import anju from "../assets/brand/anju.png";
 import s2 from "../assets/brand/s2.jpeg";
 import dhiru from "../assets/brand/dhiru.JPG";
-import lalit from "../assets/brand/lalit.png"; 
+import lalit from "../assets/brand/lalit.png";
 import sanjay from "../assets/brand/sanjay.png";
 import atul from "../assets/brand/atul.png";
 import anmol from "../assets/brand/anmol.jpg";
 import subo from "../assets/brand/subo.png";
 import home from "../assets/solution/home.jpg";
-
 
 import { motion } from "framer-motion";
 
@@ -66,6 +67,30 @@ const Counter = ({ end, duration = 2000, suffix = "+" }) => {
 
 const About = () => {
   const sliderRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Preload Images Logic
+  useEffect(() => {
+    const imagesToLoad = [
+      home, ceo, manager, sales, presales, amar, anju, s2, dhiru, lalit, sanjay, atul, anmol, subo
+    ];
+
+    let loadedImagesCount = 0;
+
+    const handleImageLoad = () => {
+      loadedImagesCount++;
+      if (loadedImagesCount === imagesToLoad.length) {
+        setIsLoading(false); // Jab sabhi images load ho jayengi tab loading band ho jayegi
+      }
+    };
+
+    imagesToLoad.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = handleImageLoad;
+      img.onerror = handleImageLoad; // Agar koi image error de, toh bhi loading na ruke
+    });
+  }, []);
 
   // SEO Meta Tags Optimization Setup
   useEffect(() => {
@@ -103,56 +128,35 @@ const About = () => {
   ];
 
   const whyChooseUs = [
-    {
-      icon: <FaShieldAlt />,
-      title: "Professional & Ethical Standards",
-    },
-    {
-      icon: <FaClock />,
-      title: "Commitment to Timely Delivery",
-    },
-    {
-      icon: <FaLightbulb />,
-      title: "Innovative Best-in-Class Solutions",
-    },
-    {
-      icon: <FaUsers />,
-      title: "Honest & Supportive Team",
-    },
-    {
-      icon: <FaCogs />,
-      title: "Deep Technical Expertise",
-    },
-    {
-      icon: <FaTools />,
-      title: "Dedicated In-House Service & Repair",
-    },
+    { icon: <FaShieldAlt />, title: "Professional & Ethical Standards" },
+    { icon: <FaClock />, title: "Commitment to Timely Delivery" },
+    { icon: <FaLightbulb />, title: "Innovative Best-in-Class Solutions" },
+    { icon: <FaUsers />, title: "Honest & Supportive Team" },
+    { icon: <FaCogs />, title: "Deep Technical Expertise" },
+    { icon: <FaTools />, title: "Dedicated In-House Service & Repair" },
   ];
 
   // 13 Team Members Array Setup
   const teamMembers = [
-    { name: "Akhilesh Prajapati", designation: "Founder & CEO", image: [ceo],},
-    { name: "Surendra Kumar", designation: "Director - Operations", image: [s2],},
-    { name: "Suman Pajapati", designation: "Sales & Marketing (Manager)", image: [manager],},
-    { name: "Amarnath Prajapati", designation: "Project Manager", image: [amar],},
-    { name: "Dhirendra Prajapati", designation: "Product Manager", image:[dhiru],},
-    { name: "Rohit Mandal", designation: "Sales Manager", image: [sales],},
-    { name: "Prashant Kumar", designation: "Application Engineer", image: [presales],},
-    { name: "Lalit Shahane", designation: "Sales Manager (Pro Audio)", image:[lalit],},
-    { name: "Subodh Kamble", designation: "Sound Engineer", image: [subo],},
-    { name: "Anju Kumari", designation: "Accounts Executive", image: [anju],},
-    { name: "Sanjay Prajapati", designation: "Sr. AV Technician", image: [sanjay],},
-    { name: "Atul Kumar", designation: "AV Technician", image: [atul],},
-    { name: "Anmol Prajapati", designation: "Design Engineer", image: [anmol],},
-  
-  
+    { name: "Akhilesh Prajapati", designation: "Founder & CEO", image: [ceo] },
+    { name: "Surendra Kumar", designation: "Director - Operations", image: [s2] },
+    { name: "Suman Pajapati", designation: "Sales & Marketing (Manager)", image: [manager] },
+    { name: "Amarnath Prajapati", designation: "Project Manager", image: [amar] },
+    { name: "Dhirendra Prajapati", designation: "Product Manager", image: [dhiru] },
+    { name: "Rohit Mandal", designation: "Sales Manager", image: [sales] },
+    { name: "Prashant Kumar", designation: "Application Engineer", image: [presales] },
+    { name: "Lalit Shahane", designation: "Sales Manager (Pro Audio)", image: [lalit] },
+    { name: "Subodh Kamble", designation: "Sound Engineer", image: [subo] },
+    { name: "Anju Kumari", designation: "Accounts Executive", image: [anju] },
+    { name: "Sanjay Prajapati", designation: "Sr. AV Technician", image: [sanjay] },
+    { name: "Atul Kumar", designation: "AV Technician", image: [atul] },
+    { name: "Anmol Prajapati", designation: "Design Engineer", image: [anmol] },
   ];
 
   // Carousel Scroll Handler tailored for dynamic widths
   const scrollSlider = (direction) => {
     if (sliderRef.current) {
       const containerWidth = sliderRef.current.offsetWidth;
-      // Slides single column layout offsets or multi card scrolling intervals
       const scrollAmount = direction === "left" ? -containerWidth * 0.75 : containerWidth * 0.75;
       sliderRef.current.scrollBy({
         left: scrollAmount,
@@ -179,6 +183,29 @@ const About = () => {
     },
   };
 
+  // =============== NAYA GOL-GOL GHUMNE WALA LOADING SCREEN ===============
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 bg-[#050B18] z-50 flex flex-col items-center justify-center text-white">
+        <div className="relative flex items-center justify-center mb-8">
+          {/* Base transparent ring */}
+          <div className="w-24 h-24 border-8 border-[#0a152e] rounded-full"></div>
+          
+          {/* Outer Spin Ring (Clockwise) */}
+          <div className="absolute w-24 h-24 border-8 border-blue-500 border-t-transparent border-b-transparent rounded-full animate-[spin_1.5s_linear_infinite]"></div>
+          
+          {/* Inner Spin Ring (Anti-Clockwise) */}
+          <div className="absolute w-16 h-16 border-8 border-cyan-400 border-l-transparent border-r-transparent rounded-full animate-[spin_1s_linear_infinite_reverse]"></div>
+        </div>
+        
+        <p className="text-blue-400 font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase animate-pulse text-sm sm:text-base">
+          Eminent Audio Visual
+        </p>
+      </div>
+    );
+  }
+  // =======================================================================
+
   return (
     <div className="bg-[#050B18] text-white overflow-hidden">
       
@@ -186,7 +213,7 @@ const About = () => {
       <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center py-20 lg:py-32">
         {/* BACKGROUND IMAGE */}
         <img
-          src= {home}
+          src={home}
           alt="Eminent Audio Visual Infrastructure Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -217,7 +244,6 @@ const About = () => {
              At Eminent Audio Visual, we are passionate experts committed to elevating the professional audiovisual industry. We proudly represent and distribute some of the most distinguished global brands, while delivering end to end solutions that redefine innovation and reliability.
 Our turnkey approach ensures seamless execution — from import and integration of products to final commissioning and performance validation. Every project we undertake is designed to inspire confidence and deliver measurable value, bringing productivity, efficiency, and sustainability to life for businesses and institutions alike.
 By blending technical mastery with creative vision, we transform environments into immersive experiences, setting new benchmarks in audiovisual excellence.
- 
             </p>
 
             {/* HERO HERO-FEATURES GRID */}
@@ -469,7 +495,7 @@ By blending technical mastery with creative vision, we transform environments in
               <FaChevronLeft className="text-sm sm:text-base" />
             </button>
 
-            {/* RESPONSIVE TRACK CONFIGURATION (Shows 3 to 4 cards perfectly on Large Screens) */}
+            {/* RESPONSIVE TRACK CONFIGURATION */}
             <div
               ref={sliderRef}
               className="w-full flex overflow-x-auto gap-5 scrollbar-hide py-6 px-1 snap-x snap-mandatory scroll-smooth"
@@ -499,15 +525,6 @@ By blending technical mastery with creative vision, we transform environments in
                     <p className="text-blue-400 mb-4 text-xs sm:text-sm font-medium h-[40px] flex items-center justify-center leading-tight">
                       {member.designation}
                     </p>
-                    {/* <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors duration-300 text-xs sm:text-sm border border-white/10 px-4 py-1.5 rounded-full bg-white/5 hover:bg-white/10 mt-auto"
-                    >
-                      <FaLinkedin className="text-blue-500" />
-                      Profile
-                    </a> */}
                   </div>
                 </motion.div>
               ))}
