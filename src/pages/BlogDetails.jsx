@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { blogs } from "../data/blogData.jsx";
+
+// IMAGES
 import pune from "../assets/new/pune.JPG"; 
 import chennai2026 from "../assets/new/chennai2026.jpg";
 import palm2026 from "../assets/new/palm2026.JPG";
@@ -18,42 +20,90 @@ const BlogDetails = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
 
+  const blog = blogs.find((item) => item.slug === slug);
+
   // ==========================================
-  // LOADING STATE ADD KIYA GAYA HAI
+  // IMAGE MAP & LOGIC (Memoized to prevent re-renders)
+  // ==========================================
+  const allImages = useMemo(() => {
+    if (!blog) return [];
+
+    const blogImagesMap = {
+      "audio-solutions-expo-2025": [pune, pune1, pune2, pune3],
+      "pro-audio-brand-award": [palm2026, palm1, palm2, palm3],
+      "line-array-vs-column-array": [chennai2026, chennai1, chennai2, chennai3],
+    };
+
+    const fallbackImages = [
+      blog.image || pune,
+      "https://images.unsplash.com/photo-1493225457124-a1a2a5fa5034?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop"
+    ];
+
+    return blog?.images?.length >= 3 
+      ? blog.images 
+      : (blogImagesMap[blog.slug] || fallbackImages);
+  }, [blog]);
+
+  const mainImage = allImages[0];
+  const galleryImages = allImages.slice(1, 4);
+
+  // ==========================================
+  // LOADING STATE
   // ==========================================
   const [isLoading, setIsLoading] = useState(true);
 
   // ==========================================
-  // SCROLL TO TOP & LOADING LOGIC
+  // SCROLL TO TOP & REAL IMAGE PRELOADING
   // ==========================================
   useEffect(() => {
-    // 1. Loading shuru karo
     setIsLoading(true);
-    
-    // 2. Page ko turant top par bhej do (background me ho jayega)
     window.scrollTo(0, 0);
 
-    // 3. Ek chota sa timer lagao (taaki upar jane ka effect hide ho jaye)
-    const timer = setTimeout(() => {
+    if (!blog || allImages.length === 0) {
       setIsLoading(false);
-    }, 600); // 600ms baad loading hategi, aap isko kam-jyada kar sakte ho
+      return;
+    }
 
-    return () => clearTimeout(timer);
-  }, [slug]);
+    let loadedCount = 0;
+    // Filter out any undefined/null images just in case
+    const imagesToLoad = allImages.filter(Boolean);
 
+    const handleImageLoad = () => {
+      loadedCount++;
+      // Jab saari images memory me load ho jayen, tabhi loader hatao
+      if (loadedCount === imagesToLoad.length) {
+        setIsLoading(false);
+      }
+    };
 
-  const blog = blogs.find((item) => item.slug === slug);
+    // Har image ko browser cache me silently load karna
+    imagesToLoad.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = handleImageLoad;
+      img.onerror = handleImageLoad; // Agar koi image tuti ho, tab bhi aage badho
+    });
+
+    // Fallback Timer: Agar internet bahut slow ho to max 4 seconds baad force-open kar do
+    const fallbackTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(fallbackTimer);
+  }, [slug, blog, allImages]);
+
 
   // ==========================================
-  // LOADER UI (Jab tak isLoading true hai, ye dikhega)
+  // LOADER UI
   // ==========================================
   if (isLoading) {
     return (
       <section className="flex min-h-screen items-center justify-center bg-[#050B18]">
-        {/* Spinner Animation */}
         <div className="flex flex-col items-center gap-4">
           <div className="h-16 w-16 animate-spin rounded-full border-4 border-white/10 border-t-blue-500"></div>
-          <p className="text-sm tracking-widest text-blue-400 animate-pulse">LOADING...</p>
+          <p className="text-sm tracking-widest text-blue-400 animate-pulse">LOADING CONTENT...</p>
         </div>
       </section>
     );
@@ -77,49 +127,6 @@ const BlogDetails = () => {
     );
   }
 
-  // ==========================================
-  // Har Blog ke hisab se ALAG ALAG IMAGES
-  // ==========================================
-  const blogImagesMap = {
-    // 1. Pune Demo Event wali images
-    "audio-solutions-expo-2025": [
-      pune, // Aapki local image
-      pune1, // Sound Mixer
-      pune2, // Live Speaker
-      pune3  // Setup
-    ],
-    // 2. PALM Expo wali images
-    "pro-audio-brand-award": [
-      palm2026 , // Main Expo image
-      palm1, // Lights/Stage
-      palm2, // Crowd
-      palm3,  // Event Party
-    ],
-    // 3. Line Array vs Column Array wali images
-    "line-array-vs-column-array": [
-       [chennai2026], // Main Tech setup
-      chennai1, // Speakers close up
-      chennai2, // Tech architecture
-       chennai3,// Installation
-    ]
-  };
-
-  // Agar upar wale map me slug nahi mila, to ye default images chalengi
-  const fallbackImages = [
-    blog.image || pune,
-    "https://images.unsplash.com/photo-1493225457124-a1a2a5fa5034?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop"
-  ];
-
-  // Agar `blogData.jsx` me pehle se array hai to wo le lo, warna upar wale map se match karo
-  const allImages = blog?.images?.length >= 3 
-      ? blog.images 
-      : (blogImagesMap[blog.slug] || fallbackImages);
-  
-  const mainImage = allImages[0]; // Pehli image sabse badi
-  const galleryImages = allImages.slice(1, 4); // Baaki 3 images grid ke liye
-
   return (
     <section className="min-h-screen bg-[#050B18] px-4 py-20 md:px-6 md:py-32 animate-in fade-in duration-700">
       <div className="mx-auto max-w-7xl">
@@ -131,7 +138,6 @@ const BlogDetails = () => {
           {/* LEFT SIDE : IMAGES AREA */}
           {/* ======================= */}
           <div className="lg:col-span-5 xl:col-span-6">
-            {/* Sticky container jisse text scroll hone par image screen par rahe */}
             <div className="sticky top-32 flex flex-col gap-4 md:gap-6">
               
               {/* Main Big Image */}
@@ -140,7 +146,8 @@ const BlogDetails = () => {
                   <img
                     src={mainImage}
                     alt={blog.title}
-                    loading="lazy"
+                    // Yahan se loading="lazy" hata diya hai taaki pehli image turant dikhe
+                    loading="eager" 
                     className="h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[450px]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
@@ -153,7 +160,6 @@ const BlogDetails = () => {
                   {galleryImages.map((img, index) => (
                     <div
                       key={index}
-                      // Agar 3rd image hai, toh usko poori width (col-span-2) de do
                       className={`group overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] shadow-lg ${
                         galleryImages.length === 3 && index === 2 ? "col-span-2" : "col-span-1"
                       }`}
