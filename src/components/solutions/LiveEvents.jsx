@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import event from "../../assets/solution/event.JPG";
+import event from "../../assets/solution/event.jpg";
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -80 },

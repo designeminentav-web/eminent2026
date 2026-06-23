@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { blogs } from "../data/blogData.jsx";
 import pune from "../assets/new/pune.JPG"; 
-import chennai2026 from "../assets/new/chennai2026.JPG";
+import chennai2026 from "../assets/new/chennai2026.jpg";
 import palm2026 from "../assets/new/palm2026.JPG";
 import pune1 from "../assets/new/pune1.JPG";
 import pune2 from "../assets/new/pune2.JPG";
@@ -10,9 +10,9 @@ import pune3 from "../assets/new/pune3.JPG";
 import palm1 from "../assets/new/palm1.JPG";
 import palm2 from "../assets/new/palm2.JPG";
 import palm3 from "../assets/new/palm3.JPG";
-import chennai1 from "../assets/new/chennai1.JPEG";
-import chennai2 from "../assets/new/chennai2.JPEG";
-import chennai3 from "../assets/new/chennai3.JPEG";
+import chennai1 from "../assets/new/chennai1.jpeg";
+import chennai2 from "../assets/new/chennai2.jpeg";
+import chennai3 from "../assets/new/chennai3.jpeg";
 
 const BlogDetails = () => {
   const navigate = useNavigate();
