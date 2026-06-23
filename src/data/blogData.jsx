@@ -1,4 +1,4 @@
-import chennai2026 from "../assets/new/chennai2026.JPG";
+import chennai2026 from "../assets/new/chennai2026.jpg";
 import palm2026 from "../assets/new/palm2026.JPG";
 import pune from "../assets/new/pune.JPG";
 

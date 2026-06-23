@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import govermrnt1 from "../assets/solution/govermrnt1.JPG";
-import corporate1 from "../assets/solution/corporate1.JPG";
-import house from "../assets/solution/house.JPG";
-import home2 from "../assets/solution/home2.JPG";
-import school from "../assets/solution/school.JPG";
+import govermrnt1 from "../assets/solution/govermrnt1.jpg";
+import corporate1 from "../assets/solution/corporate1.jpg";
+import house from "../assets/solution/house.jpg";
+import home2 from "../assets/solution/home2.jpg";
+import school from "../assets/solution/school.jpg";
 import event from "../assets/solution/event.JPG";
 import {
   FaUniversity,
