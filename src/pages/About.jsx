@@ -26,9 +26,9 @@ import s2 from "../assets/brand/s2.jpeg";
 import dhiru from "../assets/brand/dhiru.JPG";
 import lalit from "../assets/brand/lalit.png"; 
 import sanjay from "../assets/brand/sanjay.png";
-import atul from "../assets/brand/atul.PNG";
-import anmol from "../assets/brand/anmol.JPG";
-import subo from "../assets/brand/subo.PNG";
+import atul from "../assets/brand/atul.png";
+import anmol from "../assets/brand/anmol.jpg";
+import subo from "../assets/brand/subo.png";
 import home from "../assets/solution/home.JPG";
 
 

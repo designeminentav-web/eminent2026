@@ -5,7 +5,7 @@ import corporate1 from "../assets/solution/corporate1.jpg";
 import house from "../assets/solution/house.jpg";
 import home2 from "../assets/solution/home2.jpg";
 import school from "../assets/solution/school.jpg";
-import event from "../assets/solution/event.JPG";
+import event from "../assets/solution/event.jpg";
 import {
   FaUniversity,
   FaBuilding,
