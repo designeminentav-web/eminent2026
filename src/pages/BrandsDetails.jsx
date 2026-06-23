@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async"; // <-- SEO ke liye
 import {
   FaArrowRight,
   FaHeadphones,
@@ -116,234 +117,212 @@ const BrandProducts = () => {
     );
   }
 
+  // Format the brand name for Title and Display
+  const brandNameFormatted = id === "louismartin" ? "Louis Martin" : "Amate Audio";
+
   return (
-    <div className="bg-black text-white overflow-hidden">
-
-      {/* HERO */}
-      <section className="relative min-h-[60vh] md:h-[70vh] flex items-center justify-center text-center px-4 md:px-6 overflow-hidden">
-
-        {/* DYNAMIC BACKGROUND IMAGE */}
-        <img 
-          src={heroImage} 
-          alt={`${id} Audio Background`} 
-          className="absolute inset-0 w-full h-full object-cover object-center"
+    <>
+      {/* DYNAMIC SEO META TAGS */}
+      <Helmet>
+        <title>{brandNameFormatted} Products | Eminent Audio Visual</title>
+        <meta 
+          name="description" 
+          content={`Explore the premium professional audio solutions from ${brandNameFormatted}. Discover high-performance sound systems and technologies.`} 
         />
+      </Helmet>
 
-        {/* Overlay - Thoda dark kiya hai taaki text clear dikhe image ke upar */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-[#050B18]"></div>
+      <div 
+        className="bg-black text-white overflow-hidden"
+        style={{ contentVisibility: "auto", containIntrinsicSize: "auto 1200px" }} // <-- SPEED OPTIMIZATION
+      >
 
-        {/* Glow */}
-        <div className="absolute top-0 left-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-blue-500/20 blur-[100px] rounded-full"></div>
+        {/* HERO */}
+        <section className="relative min-h-[60vh] md:h-[70vh] flex items-center justify-center text-center px-4 md:px-6 overflow-hidden">
 
-        <div className="relative z-10 max-w-4xl">
+          {/* DYNAMIC BACKGROUND IMAGE - SPEED OPTIMIZED */}
+          <img 
+            src={heroImage} 
+            alt={`${brandNameFormatted} Background`} 
+            loading="eager"
+            fetchpriority="high" // <-- SPEED OPTIMIZATION: Load Fast
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
 
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="uppercase tracking-[4px] md:tracking-[6px] text-blue-400 text-xs md:text-sm mb-4"
-          >
-          
-          </motion.p>
+          {/* Overlay - Thoda dark kiya hai taaki text clear dikhe image ke upar */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/80 to-[#050B18]"></div>
 
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight capitalize"
-          >
-            {/* Yahan condition lagayi hai ki agar id 'louismartin' hai toh beech me space dekar "Louis Martin" likhe. Aur Audio wala word na dikhaye */}
-            {id === "louismartin" ? "Louis Martin" : id}
-            {id !== "louismartin" && <span> Audio</span>}
-          </motion.h1>
+          {/* Glow */}
+          <div className="absolute top-0 left-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-blue-500/20 blur-[100px] rounded-full"></div>
 
-          <p className="text-gray-300 mt-5 text-sm sm:text-base md:text-lg leading-7 md:leading-8 max-w-2xl mx-auto">
-            Explore innovative professional audio solutions crafted for
-            exceptional sound performance and immersive AV experiences.
-          </p>
+          <div className="relative z-10 max-w-4xl">
 
-        </div>
-
-      </section>
-
-      {/* SERIES */}
-      <section>
-
-        {products.map((item, index) => {
-          // Check agar image Column Speaker ki hai toh usko bada dikhane ke liye condition
-          const isColumnSpeaker = item.name === "Column Speaker";
-
-          return (
-            <motion.section
-              key={index}
-              initial={{ opacity: 0, y: 70 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="
-                relative
-                min-h-screen
-                flex
-                items-center
-                overflow-hidden
-              "
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="uppercase tracking-[4px] md:tracking-[6px] text-blue-400 text-xs md:text-sm mb-4"
             >
+            </motion.p>
 
-              {/* BG IMAGE */}
-              <div
-                className={`
-                  absolute
-                  inset-0
-                  bg-cover
-                  bg-center
-                  ${isColumnSpeaker ? "scale-[1.6] md:scale-[1.9]" : "scale-110"}
-                `}
-                style={{
-                  backgroundImage: `url(${item.img})`,
-                }}
-              ></div>
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight capitalize"
+            >
+              {id === "louismartin" ? "Louis Martin" : id}
+              {id !== "louismartin" && <span> Audio</span>}
+            </motion.h1>
 
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-black/80"></div>
+            <p className="text-gray-300 mt-5 text-sm sm:text-base md:text-lg leading-7 md:leading-8 max-w-2xl mx-auto">
+              Explore innovative professional audio solutions crafted for
+              exceptional sound performance and immersive AV experiences.
+            </p>
 
-              {/* GLOW */}
-              <div className="absolute top-1/2 left-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-blue-500/10 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          </div>
 
-              {/* CONTENT */}
-              <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6">
+        </section>
 
-                <div className="max-w-3xl">
+        {/* SERIES */}
+        <section>
 
-                  <div className="flex items-center gap-3 text-blue-400 mb-5">
+          {products.map((item, index) => {
+            // Check agar image Column Speaker ki hai toh usko bada dikhane ke liye condition
+            const isColumnSpeaker = item.name === "Column Speaker";
 
-                    {/* <FaVolumeUp className="text-sm md:text-base" />
+            return (
+              <motion.section
+                key={index}
+                initial={{ opacity: 0, y: 70 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="
+                  relative
+                  min-h-screen
+                  flex
+                  items-center
+                  overflow-hidden
+                "
+              >
 
-                    <span className="uppercase tracking-[3px] md:tracking-[4px] text-[10px] sm:text-xs md:text-sm">
-                      Professional Audio Series
-                    </span> */}
+                {/* BG IMAGE - SPEED OPTIMIZED USING IMG TAG FOR BETTER CONTROL */}
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  loading="lazy"
+                  decoding="async" // <-- SPEED OPTIMIZATION: Process smoothly in background
+                  className={`
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+                    object-cover
+                    object-center
+                    ${isColumnSpeaker ? "scale-[1.6] md:scale-[1.9]" : "scale-110"}
+                  `}
+                />
 
-                  </div>
+                {/* OVERLAY */}
+                <div className="absolute inset-0 bg-black/80"></div>
 
-                  <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 md:mb-8 leading-tight">
-                    {item.name}
-                  </h2>
+                {/* GLOW */}
+                <div className="absolute top-1/2 left-1/2 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-blue-500/10 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
 
-                  <p className="text-gray-300 text-sm sm:text-base md:text-xl leading-7 md:leading-9 mb-8 md:mb-10">
-                    {item.desc}
-                  </p>
+                {/* CONTENT */}
+                <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6">
 
-                  {/* FEATURES */}
-                  <div className="space-y-4 md:space-y-5 mb-10 md:mb-12">
+                  <div className="max-w-3xl">
 
-                    <div className="flex items-center gap-3 md:gap-4 text-gray-200">
-
-                      {/* <FaHeadphones className="text-blue-400 text-lg md:text-xl" /> */}
-
-                      {/* <span className="text-sm sm:text-base md:text-lg">
-                        Premium Sound Performance
-                      </span> */}
-
+                    <div className="flex items-center gap-3 text-blue-400 mb-5">
+                      {/* Placeholder for future icons/badges */}
                     </div>
 
-                    <div className="flex items-center gap-3 md:gap-4 text-gray-200">
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 md:mb-8 leading-tight">
+                      {item.name}
+                    </h2>
 
-                      {/* <FaBroadcastTower className="text-blue-400 text-lg md:text-xl" />
+                    <p className="text-gray-300 text-sm sm:text-base md:text-xl leading-7 md:leading-9 mb-8 md:mb-10 whitespace-pre-line">
+                      {item.desc}
+                    </p>
 
-                      <span className="text-sm sm:text-base md:text-lg">
-                        Advanced Audio Engineering
-                      </span> */}
-
-                    </div>
+                    {/* BUTTON CHANGED TO 'Know More' and linked to '/contact' */}
+                    <Link
+                      to="/contact"
+                      className="
+                        inline-flex
+                        items-center
+                        gap-3
+                        px-6 md:px-8
+                        py-3 md:py-4
+                        rounded-2xl
+                        bg-gradient-to-r
+                        from-blue-500
+                        to-cyan-500
+                        text-white
+                        text-sm md:text-base
+                        font-medium
+                        shadow-2xl
+                        hover:scale-105
+                        transition duration-300
+                      "
+                    >
+                      Know More
+                      <FaArrowRight />
+                    </Link>
 
                   </div>
-
-                  {/* BUTTON CHANGED TO 'Know More' and linked to '/contact' */}
-                  <Link
-                    to="/contact"
-                    className="
-                      inline-flex
-                      items-center
-                      gap-3
-                      px-6 md:px-8
-                      py-3 md:py-4
-                      rounded-2xl
-                      bg-gradient-to-r
-                      from-blue-500
-                      to-cyan-500
-                      text-white
-                      text-sm md:text-base
-                      font-medium
-                      shadow-2xl
-                      hover:scale-105
-                      transition duration-300
-                    "
-                  >
-                    Know More
-                    <FaArrowRight />
-                  </Link>
 
                 </div>
 
-              </div>
+              </motion.section>
+            );
+          })}
 
-            </motion.section>
-          );
-        })}
+        </section>
 
-      </section>
+        {/* CTA */}
+        <section className="py-20 md:py-24 px-4 md:px-6 bg-[#050B18]">
 
-      {/* CTA */}
-      <section className="py-20 md:py-24 px-4 md:px-6 bg-[#050B18]">
-
-        <div
-          className="
-            max-w-2xl min-h-[120px]
-            mx-auto
-            flex items-center justify-center
-          "
-        >
-
-          {/* <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 md:mb-6 leading-tight">
-            Explore More From
-            <span className="text-blue-400"> {id}</span>
-          </h3> */}
-
-          {/* <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-7 md:leading-8 mb-8 md:mb-10">
-            Visit the official brand website to discover the complete range of
-            premium professional audio products and technologies.
-          </p> */}
-
-          <a
-            href={brandLinks[id]}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             className="
-              inline-flex
-              items-center
-              justify-center
-              gap-3
-              px-7 md:px-10
-              py-3 md:py-4
-              rounded-2xl
-              bg-gradient-to-r
-              from-blue-500
-              to-cyan-500
-              text-white
-              text-sm md:text-base
-              font-medium
-              shadow-xl
-              hover:scale-105
-              transition duration-300
+              max-w-2xl min-h-[120px]
+              mx-auto
+              flex items-center justify-center
             "
           >
-            Visit Official Website
-            <FaArrowRight />
-          </a>
+            <a
+              href={brandLinks[id]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                items-center
+                justify-center
+                gap-3
+                px-7 md:px-10
+                py-3 md:py-4
+                rounded-2xl
+                bg-gradient-to-r
+                from-blue-500
+                to-cyan-500
+                text-white
+                text-sm md:text-base
+                font-medium
+                shadow-xl
+                hover:scale-105
+                transition duration-300
+              "
+            >
+              Visit Official Website
+              <FaArrowRight />
+            </a>
 
-        </div>
+          </div>
 
-      </section>
+        </section>
 
-    </div>
+      </div>
+    </>
   );
 };
 

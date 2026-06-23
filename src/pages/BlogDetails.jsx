@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async"; // <-- SEO ke liye add kiya
 import { blogs } from "../data/blogData.jsx";
 
 // IMAGES
@@ -67,26 +68,22 @@ const BlogDetails = () => {
     }
 
     let loadedCount = 0;
-    // Filter out any undefined/null images just in case
     const imagesToLoad = allImages.filter(Boolean);
 
     const handleImageLoad = () => {
       loadedCount++;
-      // Jab saari images memory me load ho jayen, tabhi loader hatao
       if (loadedCount === imagesToLoad.length) {
         setIsLoading(false);
       }
     };
 
-    // Har image ko browser cache me silently load karna
     imagesToLoad.forEach((src) => {
       const img = new Image();
       img.src = src;
       img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // Agar koi image tuti ho, tab bhi aage badho
+      img.onerror = handleImageLoad;
     });
 
-    // Fallback Timer: Agar internet bahut slow ho to max 4 seconds baad force-open kar do
     const fallbackTimer = setTimeout(() => {
       setIsLoading(false);
     }, 4000);
@@ -128,117 +125,132 @@ const BlogDetails = () => {
   }
 
   return (
-    <section className="min-h-screen bg-[#050B18] px-4 py-20 md:px-6 md:py-32 animate-in fade-in duration-700">
-      <div className="mx-auto max-w-7xl">
-        
-        {/* TWO COLUMN LAYOUT */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          
-          {/* ======================= */}
-          {/* LEFT SIDE : IMAGES AREA */}
-          {/* ======================= */}
-          <div className="lg:col-span-5 xl:col-span-6">
-            <div className="sticky top-32 flex flex-col gap-4 md:gap-6">
-              
-              {/* Main Big Image */}
-              {mainImage && (
-                <div className="group relative w-full overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02] shadow-2xl">
-                  <img
-                    src={mainImage}
-                    alt={blog.title}
-                    // Yahan se loading="lazy" hata diya hai taaki pehli image turant dikhe
-                    loading="eager" 
-                    className="h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[450px]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                </div>
-              )}
+    <>
+      {/* SEO META TAGS */}
+      <Helmet>
+        <title>{blog.title} | Eminent Audio Visual</title>
+        <meta 
+          name="description" 
+          content={blog.intro || "Read our latest article and updates at Eminent Audio Visual."} 
+        />
+      </Helmet>
 
-              {/* Remaining 3 Images Grid */}
-              {galleryImages.length > 0 && (
-                <div className="grid grid-cols-2 gap-4 md:gap-6">
-                  {galleryImages.map((img, index) => (
-                    <div
-                      key={index}
-                      className={`group overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] shadow-lg ${
-                        galleryImages.length === 3 && index === 2 ? "col-span-2" : "col-span-1"
-                      }`}
-                    >
-                      <img
-                        src={img}
-                        alt={`Gallery ${index + 1}`}
-                        loading="lazy"
-                        className="h-50 w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-100"
-                      />
-                    </div>
+      <section className="min-h-screen bg-[#050B18] px-4 py-20 md:px-6 md:py-32 animate-in fade-in duration-700">
+        <div className="mx-auto max-w-7xl">
+          
+          {/* TWO COLUMN LAYOUT */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+            
+            {/* ======================= */}
+            {/* LEFT SIDE : IMAGES AREA */}
+            {/* ======================= */}
+            <div className="lg:col-span-5 xl:col-span-6">
+              <div className="sticky top-32 flex flex-col gap-4 md:gap-6">
+                
+                {/* Main Big Image */}
+                {mainImage && (
+                  <div className="group relative w-full overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02] shadow-2xl">
+                    <img
+                      src={mainImage}
+                      alt={blog.title}
+                      loading="eager" 
+                      fetchpriority="high" // <-- SPEED OPTIMIZATION (Load pehle hoga)
+                      className="h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[450px]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                  </div>
+                )}
+
+                {/* Remaining 3 Images Grid */}
+                {galleryImages.length > 0 && (
+                  <div className="grid grid-cols-2 gap-4 md:gap-6">
+                    {galleryImages.map((img, index) => (
+                      <div
+                        key={index}
+                        className={`group overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] shadow-lg ${
+                          galleryImages.length === 3 && index === 2 ? "col-span-2" : "col-span-1"
+                        }`}
+                      >
+                        <img
+                          src={img}
+                          alt={`Gallery ${index + 1}`}
+                          loading="lazy"
+                          decoding="async" // <-- SPEED OPTIMIZATION (Scroll nahi atkega)
+                          className="h-50 w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-100"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* ======================= */}
+            {/* RIGHT SIDE : TEXT AREA  */}
+            {/* ======================= */}
+            <div 
+              className="flex flex-col justify-center lg:col-span-7 xl:col-span-6"
+              style={{ contentVisibility: "auto", containIntrinsicSize: "auto 1000px" }} // <-- SPEED OPTIMIZATION (Render skip trick)
+            >
+              
+              <div className="rounded-[32px] border border-white/5 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md sm:p-10 lg:p-12">
+                
+                {/* Category & Meta */}
+                <div className="mb-6 flex flex-col items-start gap-4 border-b border-white/10 pb-6">
+                  <span className="rounded-full bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[3px] text-blue-400 border border-blue-500/20">
+                    {blog.category || "Article"}
+                  </span>
+                  
+                  <h1 className="text-xl font-extrabold leading-tight text-white sm:text-4xl lg:text-2xl">
+                    {blog.title}
+                  </h1>
+                  
+                  <div className="flex items-center gap-3 text-sm font-medium text-gray-400">
+                    <span>{blog.date}</span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                    <span>{blog.readTime}</span>
+                  </div>
+                </div>
+
+                {/* Intro Text */}
+                {blog.intro && (
+                  <p className="mb-8 text-lg font-medium leading-relaxed text-blue-100/90 sm:text-xl">
+                    {blog.intro}
+                  </p>
+                )}
+
+                {/* Main Content Paragraphs */}
+                <div className="space-y-6 text-gray-300">
+                  {blog.content.map((para, index) => (
+                    <p key={index} className="text-base leading-8 sm:text-lg">
+                      {para}
+                    </p>
                   ))}
                 </div>
-              )}
-            </div>
-          </div>
 
-          {/* ======================= */}
-          {/* RIGHT SIDE : TEXT AREA  */}
-          {/* ======================= */}
-          <div className="flex flex-col justify-center lg:col-span-7 xl:col-span-6">
-            
-            <div className="rounded-[32px] border border-white/5 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md sm:p-10 lg:p-12">
-              
-              {/* Category & Meta */}
-              <div className="mb-6 flex flex-col items-start gap-4 border-b border-white/10 pb-6">
-                <span className="rounded-full bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[3px] text-blue-400 border border-blue-500/20">
-                  {blog.category || "Article"}
-                </span>
-                
-                <h1 className="text-xl font-extrabold leading-tight text-white sm:text-4xl lg:text-2xl">
-                  {blog.title}
-                </h1>
-                
-                <div className="flex items-center gap-3 text-sm font-medium text-gray-400">
-                  <span>{blog.date}</span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
-                  <span>{blog.readTime}</span>
+                {/* Bottom Action Buttons */}
+                <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row">
+                  <button
+                    onClick={() => navigate("/blogs")}
+                    className="w-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:-translate-y-1 hover:shadow-blue-500/30 sm:w-auto"
+                  >
+                    ← Back to Blogs
+                  </button>
+                  <button
+                    onClick={() => navigate("/")}
+                    className="w-full rounded-full border border-white/20 bg-white/[0.03] px-8 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-1 hover:bg-white/10 sm:w-auto"
+                  >
+                    Go to Home
+                  </button>
                 </div>
+
               </div>
-
-              {/* Intro Text */}
-              {blog.intro && (
-                <p className="mb-8 text-lg font-medium leading-relaxed text-blue-100/90 sm:text-xl">
-                  {blog.intro}
-                </p>
-              )}
-
-              {/* Main Content Paragraphs */}
-              <div className="space-y-6 text-gray-300">
-                {blog.content.map((para, index) => (
-                  <p key={index} className="text-base leading-8 sm:text-lg">
-                    {para}
-                  </p>
-                ))}
-              </div>
-
-              {/* Bottom Action Buttons */}
-              <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row">
-                <button
-                  onClick={() => navigate("/blogs")}
-                  className="w-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:-translate-y-1 hover:shadow-blue-500/30 sm:w-auto"
-                >
-                  ← Back to Blogs
-                </button>
-                <button
-                  onClick={() => navigate("/")}
-                  className="w-full rounded-full border border-white/20 bg-white/[0.03] px-8 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-1 hover:bg-white/10 sm:w-auto"
-                >
-                  Go to Home
-                </button>
-              </div>
-
             </div>
-          </div>
 
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

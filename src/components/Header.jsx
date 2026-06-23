@@ -154,7 +154,9 @@ const Header = () => {
             >
               <img
                 src={Logo}
-                alt="Logo"
+                alt="Eminent Audio Visual Logo"
+                loading="eager" // <-- SPEED OPTIMIZATION (Load instantly)
+                fetchpriority="high" // <-- SPEED OPTIMIZATION (Highest priority)
                 className="
                   h-12 md:h-14 w-auto object-contain
                   transition duration-300 hover:scale-105
@@ -249,6 +251,8 @@ const Header = () => {
                             <img
                               src={item.image}
                               alt={item.name}
+                              loading="lazy" // <-- SPEED OPTIMIZATION (Load only when menu opens)
+                              decoding="async"
                               className="
                                 w-full
                                 h-full
@@ -335,6 +339,8 @@ const Header = () => {
                           <img
                             src={item.image}
                             alt={item.name}
+                            loading="lazy" // <-- SPEED OPTIMIZATION
+                            decoding="async"
                             className="h-20 w-full object-cover"
                           />
 
@@ -380,7 +386,6 @@ const Header = () => {
                 <span className="absolute -bottom-1 left-1/2 h-[3px] w-10 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#2563EB] to-[#0EA5E9]" />
               </button>
 
-              {/* CTA removed from desktop navbar to keep the menu clean */}
             </nav>
 
             {/* MOBILE BUTTON */}
@@ -462,19 +467,18 @@ const Header = () => {
                         "
                       >
 
-                        {/* MOBILE LOGO FIX */}
                         <div className="bg-white h-[120px] p-4 flex items-center justify-center">
-
                           <img
                             src={item.image}
                             alt={item.name}
+                            loading="lazy" // <-- SPEED OPTIMIZATION
+                            decoding="async"
                             className="
                               w-full
                               h-full
                               object-contain
                             "
                           />
-
                         </div>
 
                         <div className="p-3 text-xs font-semibold text-white text-center">
@@ -522,6 +526,8 @@ const Header = () => {
                         <img
                           src={item.image}
                           alt={item.name}
+                          loading="lazy" // <-- SPEED OPTIMIZATION
+                          decoding="async"
                           className="h-20 w-full object-cover"
                         />
 
@@ -534,7 +540,6 @@ const Header = () => {
                   </div>
                 )}
               </div>
-
 
             </div>
           </div>

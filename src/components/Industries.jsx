@@ -25,48 +25,37 @@ const Industries = () => {
     {
       name: "Government",
       icon: FaUniversity,
-      image:
-        govermrnt1,
+      image: govermrnt1,
       // link: "/government",
     },
-
     {
       name: "Corporate",
       icon: FaBuilding,
-      image:
-        corporate1,
+      image: corporate1,
       // link: "/corporate",
     },
-
     {
       name: "Hospitality",
       icon: FaHotel,
-      image:
-        house,
+      image: house,
       // link: "/hospitality",
     },
-
     {
       name: "Home / Audio Solutions",
       icon: FaHome,
-      image:
-        home2,
+      image: home2,
       // link: "/home-hifi",
     },
-
     {
       name: "Education",
       icon: FaGraduationCap,
-      image:
-        school,
+      image: school,
       // link: "/education",
     },
-
     {
       name: "Events & Live Shows",
       icon: FaMicrophoneAlt,
-      image:
-        event,
+      image: event,
       // link: "/events-live-shows",
     },
   ];
@@ -87,12 +76,15 @@ const Industries = () => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % industries.length);
     }, 4000);
- 
+
     return () => clearInterval(interval);
   }, [industries.length, isMobile]);
 
   return (
-    <section className="w-full overflow-hidden bg-[#050B18]">
+    <section 
+      className="w-full overflow-hidden bg-[#050B18]"
+      style={{ contentVisibility: "auto", containIntrinsicSize: "auto 800px" }} // <-- SPEED OPTIMIZATION
+    >
 
       {/* TOP CONTENT */}
       <div
@@ -164,6 +156,10 @@ const Industries = () => {
               <img
                 src={item.image}
                 alt={item.name}
+                // SPEED OPTIMIZATION: Pehli image eager, baaki lazy load hongi
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchpriority={i === 0 ? "high" : "auto"}
+                decoding="async"
                 className="
                   absolute inset-0
                   w-full h-full
