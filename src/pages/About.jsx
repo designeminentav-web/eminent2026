@@ -29,7 +29,7 @@ import sanjay from "../assets/brand/sanjay.png";
 import atul from "../assets/brand/atul.png";
 import anmol from "../assets/brand/anmol.jpg";
 import subo from "../assets/brand/subo.png";
-import home from "../assets/solution/home.JPG";
+import home from "../assets/solution/home.jpg";
 
 
 import { motion } from "framer-motion";
