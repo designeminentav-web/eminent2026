@@ -8,11 +8,11 @@ import {
 } from "react-icons/fa";
 
 // Louis Martin Products Images
-import linearray from "../assets/famouf.jpg";
-import pointsource from "../assets/redfront.jpg";
+import linearray from "../assets/famouf.JPG";
+import pointsource from "../assets/redfront.JPG";
 import column from "../assets/kff302.jpeg";
-import commercial from "../assets/dsf15.jpg";
-import subwoofer from "../assets/ksf218.jpg";
+import commercial from "../assets/dsf15.JPG";
+import subwoofer from "../assets/ksf218.JPG";
 import electronics from "../assets/plf4.jpg";
 
 // Amate Products Images
@@ -20,7 +20,7 @@ import xcellence from "../assets/brand/Xcellence.jpg";
 import nitid1 from "../assets/brand/Nitid1.jpg";
 import elctronic from "../assets/brand/electronic.jpg";
 import dsp4 from "../assets/brand/dsp4.jpg";
-import louismartin from "../assets/brand/louismartin.PNG"; // Louis Martin ke liye hero image
+import louismartin from "../assets/brand/louismartin.png"; // Louis Martin ke liye hero image
 
 // Hero Section Background Images
 import amate1 from "../assets/brand/amate1.png";
