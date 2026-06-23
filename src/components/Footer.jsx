@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo2 from "../assets/logo2.PNG";
+import logo2 from "../assets/logo2.png";
 import {
   FaFacebookF,
   FaInstagram,
