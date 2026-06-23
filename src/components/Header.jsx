@@ -155,8 +155,8 @@ const Header = () => {
               <img
                 src={Logo}
                 alt="Eminent Audio Visual Logo"
-                loading="eager" // <-- SPEED OPTIMIZATION (Load instantly)
-                fetchpriority="high" // <-- SPEED OPTIMIZATION (Highest priority)
+                loading="eager" // <-- SPEED OPTIMIZATION
+                fetchpriority="high"
                 className="
                   h-12 md:h-14 w-auto object-contain
                   transition duration-300 hover:scale-105
@@ -212,7 +212,7 @@ const Header = () => {
                   <div
                     className="
                       absolute top-full left-1/2 -translate-x-1/2
-                      mt-1 w-[460px]
+                      mt-1 w-[400px] lg:w-[460px]
                       rounded-3xl
                       bg-gradient-to-br from-[#07152D] via-[#0B1F40] to-black
                       border border-blue-500/20
@@ -251,7 +251,7 @@ const Header = () => {
                             <img
                               src={item.image}
                               alt={item.name}
-                              loading="lazy" // <-- SPEED OPTIMIZATION (Load only when menu opens)
+                              loading="lazy"
                               decoding="async"
                               className="
                                 w-full
@@ -311,8 +311,8 @@ const Header = () => {
                 {openDesktopSolutions && (
                   <div
                     className="
-                      absolute top-full left-1/2 -translate-x-1/2
-                      mt-1 w-[880px]
+                      absolute top-full right-[-40px] lg:right-[-60px] xl:right-[-100px]
+                      mt-1 w-[700px] lg:w-[880px] max-w-[95vw]
                       rounded-3xl
                       bg-gradient-to-br from-[#07152D] via-[#0B1F40] to-black
                       border border-blue-500/20
@@ -321,7 +321,7 @@ const Header = () => {
                       p-5 z-50
                     "
                   >
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid grid-cols-3 lg:grid-cols-4 gap-4">
 
                       {solutions.map((item, i) => (
                         <button
@@ -339,7 +339,7 @@ const Header = () => {
                           <img
                             src={item.image}
                             alt={item.name}
-                            loading="lazy" // <-- SPEED OPTIMIZATION
+                            loading="lazy"
                             decoding="async"
                             className="h-20 w-full object-cover"
                           />
@@ -471,7 +471,7 @@ const Header = () => {
                           <img
                             src={item.image}
                             alt={item.name}
-                            loading="lazy" // <-- SPEED OPTIMIZATION
+                            loading="lazy"
                             decoding="async"
                             className="
                               w-full
@@ -526,7 +526,7 @@ const Header = () => {
                         <img
                           src={item.image}
                           alt={item.name}
-                          loading="lazy" // <-- SPEED OPTIMIZATION
+                          loading="lazy"
                           decoding="async"
                           className="h-20 w-full object-cover"
                         />
