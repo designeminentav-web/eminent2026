@@ -36,9 +36,9 @@ const BlogDetails = () => {
 
     const fallbackImages = [
       blog.image || pune,
-      "https://images.unsplash.com/photo-1493225457124-a1a2a5fa5034?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop"
+      // "https://images.unsplash.com/photo-1493225457124-a1a2a5fa5034?q=80&w=1000&auto=format&fit=crop",
+      // "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
+      // "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop"
     ];
 
     return blog?.images?.length >= 3 
