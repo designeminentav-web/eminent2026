@@ -17,8 +17,8 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import ceo from "../assets/brand/ceo.png";
-import manager from"../assets/brand/manager.JPEG";
-import sales from "../assets/brand/sales.jpg";
+import manager from"../assets/brand/manager.jpeg";
+import sales from "../assets/brand/sales.JPG";
 import presales from "../assets/brand/presales.png";
 import amar from "../assets/brand/amar.PNG";
 import anju from "../assets/brand/anju.PNG";
