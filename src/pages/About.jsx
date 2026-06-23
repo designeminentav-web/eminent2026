@@ -16,10 +16,10 @@ import {
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
-import ceo from "../assets/brand/ceo.PNG";
+import ceo from "../assets/brand/ceo.png";
 import manager from"../assets/brand/manager.JPEG";
-import sales from "../assets/brand/sales.JPg";
-import presales from "../assets/brand/presales.PNG";
+import sales from "../assets/brand/sales.jpg";
+import presales from "../assets/brand/presales.png";
 import amar from "../assets/brand/amar.PNG";
 import anju from "../assets/brand/anju.PNG";
 import s2 from "../assets/brand/s2.JPEG";
