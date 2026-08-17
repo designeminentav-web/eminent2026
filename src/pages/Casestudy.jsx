@@ -37,6 +37,12 @@ import demopune2 from "../assets/new/demopune2.JPG";
 
 import pss from "../assets/casestudy/pss.jpg";
 
+import btc from "../assets/casestudy/btc.png";
+
+import assound from "../assets/casestudy/assound.png";
+
+import balancebox from "../assets/casestudy/balancebox.png";
+
 import {
   FaBroadcastTower,
   FaHotel,
@@ -321,29 +327,23 @@ const CaseStudy = () => {
   category: "event",
   title: "LARGE-SCALE PROFESSIONAL AUDIO DEPLOYMENT FOR BTC PRODUCTION, NAGPUR",
   desc: "A high-output Louis Martin line array deployment featuring Q80 and Q60 systems, designed to deliver exceptional coverage, powerful performance, and outstanding audio clarity for concerts and large-scale live productions.",
-  img: [], // Add your image variable here
+  img: [btc], // Add your image variable here
   },
     {
       id: "as-sound-live-deployment",
   category: "event",
   title: "PREMIUM TOURING & LIVE EVENT AUDIO DEPLOYMENT FOR AS SOUND",
   desc: "A robust and high-performance touring audio setup featuring state-of-the-art line arrays and subwoofers to deliver uncompromised live sound reinforcement.",
-  img: [],
+  img: [assound],
 },
 
 {id: "balance-box-deployment",
   category: "event",
   title: "HIGH-PERFORMANCE AUDIO DEPLOYMENT FOR BALANCE BOX",
   desc: "A comprehensive, tour-grade professional audio setup combining advanced line arrays, earth-shaking subwoofers, and high-fidelity point source speakers for unparalleled live sound.",
-  img: [], 
+  img: [balancebox], 
 },
 
-{id: "gorav-sound-deployment",
-  category: "event",
-  title: "LARGE-SCALE PROFESSIONAL AUDIO DEPLOYMENT FOR GORAV SOUND",
-  desc: "A complete Louis Martin professional audio deployment featuring Q80 and Q60 line array systems, S218 dual subwoofers, TIP Series power amplifiers, and DL 2.6 DSP, engineered to deliver exceptional clarity, powerful bass, and dependable performance for professional live events.",
-  img: [],
-},
 
 
   ];

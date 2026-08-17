@@ -36,6 +36,10 @@ import khalsa2 from "../assets/casestudy/khalsa2.png";
 import demopune2 from "../assets/new/demopune2.JPG";
 
 import pss from "../assets/casestudy/pss.jpg";
+import btc from "../assets/casestudy/btc.png";
+import assound from "../assets/casestudy/assound.png";
+
+import balancebox from "../assets/casestudy/balancebox.png";
 
 
 
@@ -710,7 +714,7 @@ const caseStudies = [
     category: "event",
     title: "PREMIUM TOURING & LIVE EVENT AUDIO DEPLOYMENT FOR AS SOUND",
     desc: "A robust and high-performance touring audio setup featuring state-of-the-art line arrays and subwoofers to deliver uncompromised live sound reinforcement.",
-    img: [], // Yahan apni image ka variable daal dena
+    img: [assound], // Yahan apni image ka variable daal dena
     details:
       "AS Sound, a premier audio rental and live event production company, recently expanded its inventory with a massive audio deployment to cater to large-scale concerts, festivals, and outdoor live events. The requirement was a touring-grade system that guarantees exceptional vocal clarity, enormous power handling, and rapid rigging capabilities for quick setups.\n\n" +
       "The primary acoustic goal was to acquire a system capable of delivering high Sound Pressure Levels (SPL) with consistent coverage across vast audience areas, ensuring every beat and vocal nuance is experienced with concert-level intensity and zero distortion.\n\n" +
@@ -726,7 +730,7 @@ const caseStudies = [
     category: "event",
     title: "HIGH-PERFORMANCE AUDIO DEPLOYMENT FOR BALANCE BOX",
     desc: "A comprehensive, tour-grade professional audio setup combining advanced line arrays, earth-shaking subwoofers, and high-fidelity point source speakers for unparalleled live sound.",
-    img: [], // Yahan apni image ka variable laga dena
+    img: [balancebox], // Yahan apni image ka variable laga dena
     details:
       "Balance Box recently upgraded its technical inventory with a massive professional audio deployment to meet the diverse and extreme demands of modern live events, concerts, and premium productions. The requirement was a highly versatile, robust, and touring-grade system capable of delivering flawless audio across multiple venue sizes.\n\n" +
       "The primary acoustic objective was to achieve concert-level Sound Pressure Levels (SPL) with absolute vocal clarity, seamless audience coverage, and chest-thumping low-frequency impact, ensuring an electrifying and immersive auditory experience.\n\n" +
@@ -769,7 +773,7 @@ const caseStudies = [
     category: "event",
     title: "LARGE-SCALE PROFESSIONAL AUDIO DEPLOYMENT FOR BTC PRODUCTION, NAGPUR",
     desc: "A high-output Louis Martin line array deployment featuring Q80 and Q60 systems, designed to deliver exceptional coverage, powerful performance, and outstanding audio clarity for concerts and large-scale live productions.",
-    img: [], // Add your image variable here
+    img: [btc], // Add your image variable here
 
     details:
       "BTC Production, Nagpur, has expanded its professional audio inventory with a large-scale Louis Martin line array system to cater to concerts, live events, corporate productions, festivals, and premium entertainment venues. The objective was to build a versatile, high-performance sound reinforcement solution capable of delivering exceptional clarity, consistent coverage, and high SPL across events of varying sizes.\n\n" +
@@ -786,32 +790,7 @@ const caseStudies = [
 
       "With this latest Louis Martin deployment, BTC Production, Nagpur, is equipped with a powerful and scalable professional audio solution that delivers outstanding performance, exceptional coverage, and reliable operation for events of every scale."
   },
-  {
-    id: "gorav-sound-deployment",
-    category: "event",
-    title: "LARGE-SCALE PROFESSIONAL AUDIO DEPLOYMENT FOR GORAV SOUND",
-    desc: "A complete Louis Martin professional audio deployment featuring Q80 and Q60 line array systems, S218 dual subwoofers, TIP Series power amplifiers, and DL 2.6 DSP, engineered to deliver exceptional clarity, powerful bass, and dependable performance for professional live events.",
-    img: [], // Add your image variable here
-
-    details:
-      "Gorav Sound has enhanced its professional audio inventory with a comprehensive Louis Martin sound reinforcement system designed for concerts, weddings, corporate events, religious gatherings, festivals, and large-scale live productions. The objective was to build a high-output, touring-ready audio solution capable of delivering exceptional clarity, consistent coverage, and impactful bass across diverse event environments.\n\n" +
-
-      "Configured for demanding live applications, the system ensures excellent vocal intelligibility, balanced frequency response, high sound pressure levels, and immersive low-frequency performance while maintaining dependable operation throughout extended events.\n\n" +
-
-      "THE SOLUTION & EQUIPMENT SELECTION\n\n" +
-
-      "The deployment features the Louis Martin Q80 Line Array System as the primary FOH solution, delivering powerful output, excellent throw, and crystal-clear mid-high frequencies. The Louis Martin Q60 Line Array System complements the setup by providing flexible coverage for medium-sized venues, side hangs, or delay applications. Low-frequency reinforcement is handled by the Louis Martin S218 Dual 18-inch Subwoofers, producing deep, tight, and impactful bass. The complete system is driven by Louis Martin TIP1602 and TIP2402 Professional Power Amplifiers, ensuring efficient power delivery and reliable operation under demanding conditions. System tuning, crossover management, equalization, and loudspeaker optimization are managed through the Louis Martin DL 2.6 Digital Loudspeaker Processor (DSP), delivering maximum performance from every component.\n\n" +
-
-      "EQUIPMENT DESCRIPTION | QUANTITY\n" +
-      "• Louis Martin Q80 Line Array Speakers | 8 Nos\n" +
-      "• Louis Martin Q60 Line Array Speakers | 8 Nos\n" +
-      "• Louis Martin S218 Dual 18-inch Subwoofers | 12 Nos\n" +
-      "• Louis Martin TIP1602 Professional Power Amplifiers | 4 Nos\n" +
-      "• Louis Martin TIP2402 Professional Power Amplifiers | 4 Nos\n" +
-      "• Louis Martin DL 2.6 Digital Loudspeaker Processor (DSP) | 1 Nos\n\n" +
-
-      "With this complete Louis Martin deployment, Gorav Sound is now equipped with a powerful and scalable professional audio solution capable of delivering outstanding sound quality, impressive coverage, and reliable performance for events of every scale. The system reflects Louis Martin's commitment to providing dependable, high-performance audio solutions trusted by professional event companies."
-  }
+  
 
 
 ];
