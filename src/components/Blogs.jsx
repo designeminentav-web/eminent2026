@@ -60,7 +60,12 @@ const Blogs = () => {
         {/* Blog Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          {blogs.map((blog, index) => (
+          {/* 👉 BADLAV (CHANGE): 
+            Pehle yahan pure blogs loop ho rahe the: {blogs.map((blog, index) => (
+            Ab maine .slice(0, 3) lagaya hai taaki array se sirf pehle 3 items (0, 1, 2) hi display hon.
+          */}
+          {/* {blogs.map((blog, index) => ( */}
+          {blogs.slice(0, 3).map((blog, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}

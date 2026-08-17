@@ -48,7 +48,7 @@ const AboutSection = () => {
               "
             >
               <img
-                src= {about}
+                src={about}
                 alt="Audio"
                 className="
                   w-full
@@ -77,16 +77,16 @@ const AboutSection = () => {
                 
                 "
               >
-                
+
 
                 <div>
                   {/* <h4 className="text-white text-sm font-semibold">
                     Premium AV
                   </h4> */}
 
-                  <p 
+                  <p
                   >
-                   
+
                   </p>
                 </div>
               </motion.div>
@@ -109,8 +109,8 @@ const AboutSection = () => {
                
               "
             >
-              
-              
+
+
             </motion.div>
 
             {/* Heading */}
@@ -120,15 +120,17 @@ const AboutSection = () => {
               transition={{ delay: 0.3 }}
               className="
                 mt-6
-                text-4xl md:text-5xl
-                font-black
-                leading-tight
-                text-white
+  text-4xl md:text-5xl
+  font-black
+  leading-tight
+  text-white
+  text-center
+  lg:text-left
               "
             >
               WHO WE ARE
               <span className="block text-blue-400">
-              
+
               </span>
             </motion.h2>
 
@@ -139,17 +141,18 @@ const AboutSection = () => {
               transition={{ delay: 0.4 }}
               className="
                 mt-6
-                text-gray-300
-                leading-8
-                text-[15px]
+    text-gray-300
+    leading-8
+    text-[15px]
+    text-justify
               "
             >
-            Founded in 2016, we have grown into a team of experts committed to advancing and delivering some of the finest brands in the professional audiovisual industry. Through our innovative turnkey approach, we manage every stage — from importing and logistics to execution and commissioning. Each solution is carefully crafted to enhance productivity, efficiency, and sustainability. Our systems are future‑ready, empowering businesses and individuals with transformative technologies. By blending technical precision with visionary design, we create environments that inspire, perform, and endure. With every project, we reaffirm our dedication to excellence and innovation in professional audiovisual solutions.
+              Founded in 2016, we have grown into a team of experts committed to advancing and delivering some of the finest brands in the professional audiovisual industry. Through our innovative turnkey approach, we manage every stage — from importing and logistics to execution and commissioning. Each solution is carefully crafted to enhance productivity, efficiency, and sustainability. Our systems are future‑ready, empowering businesses and individuals with transformative technologies. By blending technical precision with visionary design, we create environments that inspire, perform, and endure. With every project, we reaffirm our dedication to excellence and innovation in professional audiovisual solutions.
 
               <br />
               <br />
 
-         
+
 
             </motion.p>
 
@@ -164,7 +167,7 @@ const AboutSection = () => {
                 text-[15px]
               "
             >
-             
+
             </motion.p>
 
             {/* Features */}

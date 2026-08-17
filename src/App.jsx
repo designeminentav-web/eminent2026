@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import WhatsAppButton from "./pages/WhatsAppButton";
+
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
@@ -27,6 +29,8 @@ const DesignRequest = lazy(() => import("./pages/DesignRequest"));
 const Corporate = lazy(() => import("./pages/Corporate"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
+
+
 // import DesignRequest from "./pages/DesignRequest";  
 // import Government from "./pages/Government";
 // import Hospitality from "./pages/Hospitality";
@@ -71,6 +75,7 @@ function App() {
           <Route path="/blog/:slug" element={<BlogDetails />} />
         </Routes>
       </Suspense>
+      <WhatsAppButton />
       <Footer />
     </div>
   );

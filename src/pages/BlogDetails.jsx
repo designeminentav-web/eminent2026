@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async"; // <-- SEO ke liye add kiya
+import { Helmet } from "react-helmet-async"; 
 import { blogs } from "../data/blogData.jsx";
 
 // IMAGES
@@ -17,6 +17,31 @@ import chennai1 from "../assets/new/chennai1.jpeg";
 import chennai2 from "../assets/new/chennai2.jpeg";
 import chennai3 from "../assets/new/chennai3.jpeg";
 
+// NAYA BLOG: IMAGE IMPORTS
+import eav10 from "../assets/new/eav10.JPG"; 
+import eav1 from "../assets/new/eav1.JPG"; 
+import eav2 from "../assets/new/eav2.JPG";
+import eav3 from "../assets/new/eav3.JPG";
+
+import demopune1 from "../assets/new/demopune1.JPG";
+import demopune2 from "../assets/new/demopune2.JPG";
+import demopune3 from "../assets/new/demopune3.JPG";
+import demopune4 from "../assets/new/demopune4.JPG";
+
+import t1 from "../assets/new/t1.JPG";
+import t2 from "../assets/new/t2.JPG";
+import t3 from "../assets/new/t3.JPG";
+import t4 from "../assets/new/t4.JPG";
+
+
+
+import proae from "../assets/new/proae.jpeg";
+import proae1 from "../assets/new/proae1.jpeg";
+import proae2 from "../assets/new/proae2.jpg";
+import proae3 from "../assets/new/proae3.jpeg";
+
+
+
 const BlogDetails = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
@@ -27,24 +52,47 @@ const BlogDetails = () => {
   // IMAGE MAP & LOGIC (Memoized to prevent re-renders)
   // ==========================================
   const allImages = useMemo(() => {
-    if (!blog) return [];
+    if (!blog) return [null, null, null, null];
 
     const blogImagesMap = {
       "audio-solutions-expo-2025": [pune, pune1, pune2, pune3],
       "pro-audio-brand-award": [palm2026, palm1, palm2, palm3],
       "line-array-vs-column-array": [chennai2026, chennai1, chennai2, chennai3],
+      "celebrating-10-years": [eav3,eav2, eav1,eav10 ],
+      "palm-expo-2025": [chennai3,],
+      "pune-event-2025": [demopune2,demopune1,demopune3,demopune4],
+      "gujrat-demo": [t1,t2,t3,t4],
+      "prowave-expo-hyderabad-2026":[demopune2,demopune1,demopune3,demopune4],
+      "proae Show-ahmedabad-2026": [ proae, proae1,proae2,proae3]
+
+      
+      
+      // URL slug mein generally spaces nahi hote
     };
 
-    const fallbackImages = [
-      blog.image || pune,
-      // "https://images.unsplash.com/photo-1493225457124-a1a2a5fa5034?q=80&w=1000&auto=format&fit=crop",
-      // "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop",
-      // "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop"
-    ];
+    let fetchedImages = [];
 
-    return blog?.images?.length >= 3 
-      ? blog.images 
-      : (blogImagesMap[blog.slug] || fallbackImages);
+    // 1. Agar direct images exist karti hain data mein
+    if (blog?.images?.length > 0) {
+      fetchedImages = blog.images;
+    } 
+    // 2. Agar map mein hain
+    else if (blogImagesMap[blog.slug]) {
+      fetchedImages = blogImagesMap[blog.slug];
+    } 
+    // 3. Sirf single image hai
+    else if (blog.image) {
+      fetchedImages = [blog.image];
+    }
+
+    // Force array to always have exactly 4 items (Main + 3 Gallery).
+    // Jo image nahi hogi, uski jagah 'null' aayega (Blank div ke liye)
+    return [
+      fetchedImages[0] || null,
+      fetchedImages[1] || null,
+      fetchedImages[2] || null,
+      fetchedImages[3] || null,
+    ];
   }, [blog]);
 
   const mainImage = allImages[0];
@@ -62,14 +110,20 @@ const BlogDetails = () => {
     setIsLoading(true);
     window.scrollTo(0, 0);
 
-    if (!blog || allImages.length === 0) {
+    if (!blog) {
+      setIsLoading(false);
+      return;
+    }
+
+    // Sirf wahi images load karo jo null nahi hain
+    const imagesToLoad = allImages.filter(Boolean);
+
+    if (imagesToLoad.length === 0) {
       setIsLoading(false);
       return;
     }
 
     let loadedCount = 0;
-    const imagesToLoad = allImages.filter(Boolean);
-
     const handleImageLoad = () => {
       loadedCount++;
       if (loadedCount === imagesToLoad.length) {
@@ -148,40 +202,49 @@ const BlogDetails = () => {
               <div className="sticky top-32 flex flex-col gap-4 md:gap-6">
                 
                 {/* Main Big Image */}
-                {mainImage && (
-                  <div className="group relative w-full overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02] shadow-2xl">
-                    <img
-                      src={mainImage}
-                      alt={blog.title}
-                      loading="eager" 
-                      fetchpriority="high" // <-- SPEED OPTIMIZATION (Load pehle hoga)
-                      className="h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[450px]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                  </div>
-                )}
+                <div className="group relative w-full overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.02] shadow-2xl">
+                  {mainImage ? (
+                    <>
+                      <img
+                        src={mainImage}
+                        alt={blog.title}
+                        loading="eager" 
+                        fetchpriority="high"
+                        className="h-[300px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[450px]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                    </>
+                  ) : (
+                    // Blank div agar Main Image na ho
+                    <div className="h-[300px] w-full bg-white/[0.01] md:h-[450px]"></div>
+                  )}
+                </div>
 
                 {/* Remaining 3 Images Grid */}
-                {galleryImages.length > 0 && (
-                  <div className="grid grid-cols-2 gap-4 md:gap-6">
-                    {galleryImages.map((img, index) => (
-                      <div
-                        key={index}
-                        className={`group overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] shadow-lg ${
-                          galleryImages.length === 3 && index === 2 ? "col-span-2" : "col-span-1"
-                        }`}
-                      >
+                <div className="grid grid-cols-2 gap-4 md:gap-6">
+                  {galleryImages.map((img, index) => (
+                    <div
+                      key={index}
+                      className={`group overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.02] shadow-lg ${
+                        index === 2 ? "col-span-2" : "col-span-1"
+                      }`}
+                    >
+                      {img ? (
                         <img
                           src={img}
                           alt={`Gallery ${index + 1}`}
                           loading="lazy"
-                          decoding="async" // <-- SPEED OPTIMIZATION (Scroll nahi atkega)
+                          decoding="async"
                           className="h-50 w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-100"
                         />
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      ) : (
+                        // Blank div agar Gallery Image na ho
+                        <div className="h-50 w-full bg-white/[0.01] sm:h-100"></div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
               </div>
             </div>
 
@@ -190,9 +253,8 @@ const BlogDetails = () => {
             {/* ======================= */}
             <div 
               className="flex flex-col justify-center lg:col-span-7 xl:col-span-6"
-              style={{ contentVisibility: "auto", containIntrinsicSize: "auto 1000px" }} // <-- SPEED OPTIMIZATION (Render skip trick)
+              style={{ contentVisibility: "auto", containIntrinsicSize: "auto 1000px" }}
             >
-              
               <div className="rounded-[32px] border border-white/5 bg-white/[0.02] p-6 shadow-2xl backdrop-blur-md sm:p-10 lg:p-12">
                 
                 {/* Category & Meta */}
@@ -221,7 +283,7 @@ const BlogDetails = () => {
 
                 {/* Main Content Paragraphs */}
                 <div className="space-y-6 text-gray-300">
-                  {blog.content.map((para, index) => (
+                  {blog.content?.map((para, index) => (
                     <p key={index} className="text-base leading-8 sm:text-lg">
                       {para}
                     </p>
@@ -234,7 +296,7 @@ const BlogDetails = () => {
                     onClick={() => navigate("/blogs")}
                     className="w-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg transition-all hover:-translate-y-1 hover:shadow-blue-500/30 sm:w-auto"
                   >
-                    ← Back to Blogs
+                    &larr; Back to Blogs
                   </button>
                   <button
                     onClick={() => navigate("/")}

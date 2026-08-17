@@ -1,14 +1,73 @@
 import chennai2026 from "../assets/new/chennai2026.jpg";
 import palm2026 from "../assets/new/palm2026.JPG";
 import pune from "../assets/new/pune.JPG";
+import eav10 from "../assets/new/eav10.JPG";
+import demopune2 from "../assets/new/demopune2.JPG";
+import t1 from "../assets/new/t1.JPG";
+import proae from "../assets/new/proae.jpeg";
+import proae1 from "../assets/new/proae1.jpeg";
 
+
+proae1
 export const blogs = [
+  {
+  slug: "proae Show-ahmedabad-2026",
+  date: "6, Augest 2026",
+  title: "Eminent Audio Visual Showcases Amate Audio and Louis Martin at Proae Show Ahmedabad 2026",
+  image: proae,
+  category: "Industry Insight",
+  // readTime: "6 min read",
+  intro:
+    "Eminent Audio Visual proudly participated in Proae Show Ahmedabad 2026, held from 6 to 8 August 2026. At the event, Eminent Audio Visual showcased outdoor audio solutions from Amate Audio and Louis Martin, bringing together powerful sound performance, advanced technology, and professional audio solutions for demanding outdoor applications.",
+
+  content: [
+    "At the outdoor experience zone, Eminent Audio Visual presented a selection of professional audio solutions from Amate Audio and Louis Martin. The showcase gave visitors an opportunity to experience the systems through live demonstrations and explore their sound quality, clarity, coverage, and performance in an outdoor environment.",
+
+    "The showcase attracted dealers, distributors, sound engineers, rental professionals, system integrators, consultants, and AV enthusiasts who visited the experience zone to explore the capabilities of Amate Audio and Louis Martin solutions. Technical discussions and live demonstrations highlighted their suitability for outdoor events, live shows, concerts, large gatherings, and professional sound reinforcement applications.",
+
+    "Proae Show Ahmedabad 2026 was a valuable platform for Eminent Audio Visual to showcase Amate Audio and Louis Martin solutions, connect with professionals from across the AV industry, and strengthen relationships with partners and customers. The event further reflected Eminent Audio Visual’s commitment to bringing innovative and reliable professional audio solutions to the Indian market."
+  ]
+},
+  {
+  slug: "prowave-expo-hyderabad-2026",
+  date: "23,JULY 2026",
+  title: "Eminent Audio Visual Showcases Advanced Audio Solutions at Prowave Expo Hyderabad",
+  image: pune,
+  category: "Industry Insight",
+  // readTime: "6 min read",
+  intro:
+    "Eminent Audio Visual proudly participated in Prowave Expo Hyderabad 2026, one of the region’s most influential exhibitions for professional audio, AV, and lighting technology. The event brought together system integrators, distributors, consultants, rental companies, and audio professionals, creating an excellent platform to showcase cutting-edge sound solutions and strengthen industry relationships.",
+
+  content: [
+    "At our experience zone, visitors explored a wide range of professional audio solutions from globally recognized brands represented by Eminent Audio Visual. Live product demonstrations highlighted exceptional sound quality, advanced engineering, and reliable performance across applications including auditoriums, live events, hospitality, houses of worship, and commercial installations.",
+
+    "The exhibition attracted enthusiastic participation from dealers, consultants, sound engineers, and technology partners who engaged in technical discussions and hands-on product experiences. These interactions provided valuable insights into evolving market requirements while showcasing the versatility and innovation behind our professional audio portfolio.",
+
+    "Prowave Expo Hyderabad 2026 proved to be another successful milestone for Eminent Audio Visual. The event reinforced our commitment to delivering world-class audio technology, expanding our partner network, and supporting the growing professional AV industry across India with innovative and dependable solutions."
+  ]
+},
+
+  {
+    slug: "celebrating-10-years",
+    date: "June 17, 2026",
+    title: "Eminent Audio Visual Celebrates 10 Years of Innovation and Excellence",
+    image: eav10,
+    category: "Company Milestone",
+    // readTime: "6 min read",
+    intro:
+      "Eminent Audio Visual has officially completed a decade of delivering world-class sound and display solutions. Over the past 10 years, we have transformed spaces, empowered events, and built unbreakable trust with our clients and partners across the country, celebrating this milestone with grand gratitude.",
+    content: [
+  "To mark this incredible 10-year journey, we hosted a grand celebration bringing together our core team, trusted system integrators, rental partners, and long-standing clients. This milestone is not just a reflection of our growth, but a celebration of the shared vision and dedication that has driven us to become a leader in the professional audio-visual industry.",
+    "Over the last decade, Eminent Audio Visual has successfully executed numerous high-profile installations across corporate, government, education, and worship sectors. From introducing ground-breaking audio technologies to expanding our global brand portfolio in India, our focus has always remained on delivering pristine engineering and uncompromised audio clarity.",
+    "As we step into the next decade, we extend our heartfelt thanks to everyone who has been a part of this journey. With multiple new product lines and strategic expansions on the horizon, Eminent Audio Visual is committed to setting even higher benchmarks of innovation, quality, and technical excellence in the years to come."
+]
+  },
+  
   {
     slug: "audio-solutions-expo-2025",
     date: "June 8, 2026",
     title: "On 8th June 2026, Eminent Audio Visual hosted a spectacular Amate Audio Xcellence Series Live Demo in Pune.",
-    image:
-      pune,
+    image: pune,
     category: "Live AV Demo",
     // readTime: "4 min read",
     intro:
@@ -24,8 +83,7 @@ export const blogs = [
     slug: "pro-audio-brand-award",
     date: "May 28, 2026",
     title: "Innovation Amplified: Eminent AV Brings Global Excellence to India’s Premier AV Stage",
-    image:
-      palm2026,
+    image: palm2026,
     category: "Expo Highlight",
     // readTime: "5 min read",
     intro:
@@ -39,7 +97,7 @@ export const blogs = [
   },
   {
     slug: "line-array-vs-column-array",
-    date: "April 10, 2025",
+    date: "April 10, 2026",
     title: "Eminent Audio Visual Showcases Global Innovation at Prowave Expo Chennai",
     image: chennai2026,
     category: "Industry Insight",
@@ -51,7 +109,54 @@ export const blogs = [
   "Attendees engaged in hands‑on demonstrations and technical discussions, experiencing firsthand the performance and reliability of both brands. The showcase reinforced our commitment to bringing world‑class audio solutions tailored to the Indian market.",
   "The event also strengthened partnerships with professionals across the industry, opening new avenues for collaboration and growth. Prowave Expo 2026 marked another milestone in our journey of innovation, excellence, and leadership in professional audio."
 ]
-  }
+  },
+  
+{
+  slug: "pune-event-2025",
+  date: "June 20, 2025",
+  title: "Eminent Audio Visual: Exclusive Amate Audio Showcase in Pune 2025",
+  image: demopune2,
+  category: "Live Demo",
+  intro:
+    "In 2025, Eminent Audio Visual hosted an exclusive and highly anticipated product showcase in Pune. Bringing together leading system integrators, rental companies, and audio professionals, this event served as the perfect platform to demonstrate our latest innovations in professional audio and AV technology to the local industry.",
+  content: [
+    "At our Pune event, we proudly showcased a comprehensive product range exclusively from the premium brand, Amate Audio. Our display featured their cutting-edge solutions specifically engineered for live sound, touring, fixed installations, and demanding commercial audio environments.",
+    "Visitors and industry partners had the opportunity to experience the pristine sound quality of Amate Audio equipment firsthand through live demonstrations. Our technical team was actively involved in interactive sessions, helping dealers and professionals understand the exceptional performance, reliability, and European engineering excellence behind this incredible product portfolio.",
+    "Showcasing this top-tier product range in Pune in 2025 has been a major milestone for Eminent Audio Visual. It strongly reinforced our commitment to empowering the Indian market with world-class audio technology. We sincerely thank everyone who joined us in Pune and look forward to building stronger partnerships in the professional audio industry."
+  ]
+},
+
+
+{
+  slug: "gujrat-demo",
+  date: "June 20, 2025",
+  title: "Eminent Audio Visual: Spectacular Live Audio Demo in Ahmedabad",
+  image: t1,
+  category: "Live Demo",
+  intro:
+    "In 2025, Eminent Audio Visual hosted an exclusive and highly anticipated live audio demonstration in Ahmedabad, Gujarat. Bringing together leading system integrators, rental companies, and audio professionals, this event served as the perfect platform for the local industry to experience our latest innovations in professional audio technology firsthand.",
+  content: [
+    "At our Ahmedabad live demo, we proudly showcased a comprehensive and powerful product range featuring two of our most prominent brands: Amate Audio and Louis Martin Audio. Our setup was meticulously designed to highlight cutting-edge solutions engineered for live sound, touring, high-demand fixed installations, and commercial environments.",
+    "Attendees and industry partners had the unique opportunity to experience the pristine sound quality, sheer power, and clarity of both brands through rigorous live listening sessions. Our technical team conducted interactive demonstrations, helping professionals understand the dynamic performance of Louis Martin Audio alongside the European engineering excellence of Amate Audio.",
+    "Executing this top-tier live demo in Ahmedabad was a major milestone for Eminent Audio Visual in expanding our footprint in Gujarat. It strongly reinforced our commitment to empowering the Indian market with world-class audio technology. We sincerely thank everyone who joined us and look forward to building stronger partnerships across the region."
+  ]
+},
+{
+  slug: "palm-expo-2025",
+  date: "May 29, 2025",
+  title: "Eminent Audio Visual at PALM Expo 2025: The Grand Launch of Louis Martin Audio",
+  image: chennai2026,
+  category: "Exhibition & Launch",
+  intro:
+    "From May 29–31, 2025, Eminent Audio Visual proudly participated in PALM Expo 2025, India's premier exhibition for professional audio and AV technology. This year's event was truly historic for us, as it set the stage for our biggest announcement yet: the grand launch of our newest brand offering to the Indian market, Louis Martin Audio.",
+  content: [
+    "The absolute highlight of our booth was the official unveiling of Louis Martin Audio. We introduced industry professionals to this incredible brand, showcasing a dynamic range of professional audio solutions designed specifically for live sound, touring, and high-demand fixed installations. The launch generated massive excitement and curiosity among system integrators and rental companies.",
+    "Alongside the grand reveal of Louis Martin Audio, we also demonstrated the latest cutting-edge solutions from our premium partner, Amate Audio. Visitors had the opportunity to experience the unparalleled performance, reliability, and engineering excellence of our newly expanded portfolio through live product demonstrations and interactive discussions with our technical experts.",
+    "Our successful participation at PALM Expo 2025 and the blockbuster launch of Louis Martin Audio have strongly reinforced Eminent Audio Visual's commitment to delivering world-class audio technology to the Indian market. We sincerely thank everyone who visited our booth to witness this milestone, and we look forward to driving new innovations and building stronger partnerships in this exciting new chapter."
+  ]
+},
+  
+  
   
 ];
 

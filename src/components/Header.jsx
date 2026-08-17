@@ -403,14 +403,19 @@ const Header = () => {
           </div>
         </div>
 
-        {/* ================= MOBILE MENU ================= */}
+        {/* ================= MOBILE MENU (YAHAN FIX KIYA HAI) ================= */}
         <div
           className={`
-            lg:hidden overflow-hidden transition-all duration-500
-            ${isMenuOpen ? "max-h-[2500px]" : "max-h-0"}
+            lg:hidden transition-all duration-500
+            ${
+              isMenuOpen
+                ? "max-h-[calc(100vh-85px)] overflow-y-auto" // Height control and Scroll added
+                : "max-h-0 overflow-hidden"
+            }
           `}
         >
-          <div className="bg-gradient-to-br from-[#07152D] via-[#0B1F40] to-black border-t border-blue-500/20 px-5 py-5">
+          {/* Niche pb-10 add kiya taki aakhiri item ekdum kinare par na chipke */}
+          <div className="bg-gradient-to-br from-[#07152D] via-[#0B1F40] to-black border-t border-blue-500/20 px-5 py-5 pb-10">
 
             <div className="flex flex-col gap-2">
 
@@ -449,7 +454,11 @@ const Header = () => {
                   "
                 >
                   BRANDS
-                  <FaChevronDown />
+                  <FaChevronDown
+                    className={`transition-transform duration-300 ${
+                      openBrands ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {openBrands && (
@@ -507,7 +516,11 @@ const Header = () => {
                   "
                 >
                   SOLUTIONS
-                  <FaChevronDown />
+                  <FaChevronDown
+                    className={`transition-transform duration-300 ${
+                      openSolutions ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {openSolutions && (
