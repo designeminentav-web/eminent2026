@@ -17,7 +17,7 @@ import kris from "../assets/casestudy/kris.jpg";
 import iitmandi from "../assets/casestudy/iitmandi.jpg";
 import max from "../assets/casestudy/max.jpg";
 import nannital from "../assets/casestudy/nannital.png";
-import studebar from "../assets/casestudy/studebar.JPG";
+import studebar from "../assets/casestudy/studebar.jpg";
 import nasik from "../assets/casestudy/nasik.jpeg";
 import aviraj from "../assets/casestudy/aviraj.jpeg";
 import she from "../assets/casestudy/she.jpg";
