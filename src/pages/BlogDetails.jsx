@@ -31,7 +31,7 @@ import demopune4 from "../assets/new/demopune4.JPG";
 import t1 from "../assets/new/t1.jpg";
 import t2 from "../assets/new/t2.jpg";
 import t3 from "../assets/new/t3.jpg";
-import t4 from "../assets/new/t4.JPG";
+import t4 from "../assets/new/t4.jpg";
 
 
 

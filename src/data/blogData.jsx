@@ -1,9 +1,9 @@
 import chennai2026 from "../assets/new/chennai2026.jpg";
 import palm2026 from "../assets/new/palm2026.JPG";
-import pune from "../assets/new/pune.JPG";
-import eav10 from "../assets/new/eav10.JPG";
-import demopune2 from "../assets/new/demopune2.JPG";
-import t1 from "../assets/new/t1.JPG";
+import pune from "../assets/new/pune.jpg";
+import eav10 from "../assets/new/eav10.jpg";
+import demopune2 from "../assets/new/demopune2.jpg";
+import t1 from "../assets/new/t1.jpg";
 import proae from "../assets/new/proae.jpeg";
 import proae1 from "../assets/new/proae1.jpeg";
 
