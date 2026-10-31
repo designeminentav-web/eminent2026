@@ -37,6 +37,8 @@ import demopune2 from "../assets/new/demopune2.JPG";
 
 import pss from "../assets/casestudy/pss.jpg";
 
+import modaltown from "../assets/casestudy/modaltown.png";
+
 import {
   FaBroadcastTower,
   FaHotel,
@@ -79,6 +81,14 @@ const CaseStudy = () => {
 
   // ✅ SAHI CATEGORY KE SATH DATA UPDATE KIYA GAYA HAI
   const caseStudies = [
+    {
+      id: "gym-modal-town",
+      category: "gym",
+      title: "MULTI-ZONE GYM AUDIO INSTALLATION IN MODAL TOWN",
+      desc: "Professional audio system deployment at a large-format fitness centre featuring Amate Audio and Louis Martin.",
+      img: [modaltown], 
+    },
+  
     {
       id: "gym-paschim-vihar",
       category: "gym",

@@ -30,6 +30,12 @@ const Corporate = lazy(() => import("./pages/Corporate"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 
+//nnew add//
+const Terms = lazy(() => import("./pages/Terms"));
+const ShippingDelivery = lazy(() => import("./pages/ShippingDelivery"));
+const RefundReturnsPolicy = lazy(() => import("./pages/RefundReturnsPolicy"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+
 
 // import DesignRequest from "./pages/DesignRequest";  
 // import Government from "./pages/Government";
@@ -73,6 +79,14 @@ function App() {
           <Route path="/design-request" element={<DesignRequest />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />
+
+          //new ADD//
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/shipping-delivery" element={<ShippingDelivery />} />
+          <Route path="/refund-returns-policy" element={<RefundReturnsPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+
         </Routes>
       </Suspense>
       <WhatsAppButton />

@@ -6,10 +6,31 @@ import demopune2 from "../assets/new/demopune2.JPG";
 import t1 from "../assets/new/t1.JPG";
 import proae from "../assets/new/proae.jpeg";
 import proae1 from "../assets/new/proae1.jpeg";
+import lucknow1 from "../assets/new/lucknow1.jpg";
+import hydrabd4 from "../assets/new/hydrabd4.JPEG";
+import palm2025 from "../assets/new/palm2025.JPG";
 
 
 proae1
 export const blogs = [
+   {
+  slug: "live-demo-show-lucknow",
+  date: "28, september 2026",
+  title: "Louis Martin Audio Live Demo Receives Enthusiastic Response in Lucknow, Successfully Hosted by Eminent Audio Visual and Sound Square on 28 September 2026",
+  image: lucknow1,
+  category: "Industry Insight",
+  // readTime: "6 min read",
+  intro:
+    "Eminent Audio Visual, in collaboration with Sound Square, successfully conducted a Live Demo Show in Lucknow on 28 September 2026, bringing together industry professionals to experience the performance and capabilities of professional audio solutions. The joint event provided a dedicated platform for live demonstrations, technical discussions, and hands-on exposure to advanced audio technologies designed for demanding professional applications.",
+
+  content: [
+    "Eminent Audio Visual, in collaboration with Sound Square, successfully hosted a Live Demo Show in Lucknow on 28 September 2026. The joint event provided AV professionals, sound engineers, rental partners, and system integrators with hands-on exposure to advanced professional audio technologies in a real-world environment.",
+
+    "The showcase featured a curated range of high-performance audio systems, demonstrating exceptional clarity, power, and coverage suitable for concerts, live events, and large-scale installations. Interactive technical sessions led by both teams offered practical insights into system configuration and tuning.",
+
+    "This collaborative demo reinforced Eminent Audio Visual and Sound Square’s commitment to delivering reliable, cutting-edge audio solutions and strengthening relationships with industry partners across the Indian AV market."
+  ]
+},
   {
   slug: "proae Show-ahmedabad-2026",
   date: "6, Augest 2026",
@@ -32,7 +53,7 @@ export const blogs = [
   slug: "prowave-expo-hyderabad-2026",
   date: "23,JULY 2026",
   title: "Eminent Audio Visual Showcases Advanced Audio Solutions at Prowave Expo Hyderabad",
-  image: pune,
+  image: hydrabd4,
   category: "Industry Insight",
   // readTime: "6 min read",
   intro:
@@ -145,7 +166,7 @@ export const blogs = [
   slug: "palm-expo-2025",
   date: "May 29, 2025",
   title: "Eminent Audio Visual at PALM Expo 2025: The Grand Launch of Louis Martin Audio",
-  image: chennai2026,
+  image: palm2025,
   category: "Exhibition & Launch",
   intro:
     "From May 29–31, 2025, Eminent Audio Visual proudly participated in PALM Expo 2025, India's premier exhibition for professional audio and AV technology. This year's event was truly historic for us, as it set the stage for our biggest announcement yet: the grand launch of our newest brand offering to the Indian market, Louis Martin Audio.",

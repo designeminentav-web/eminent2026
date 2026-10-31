@@ -16,7 +16,7 @@ import {
 
 const Footer = () => {
   const navigate = useNavigate();
-  
+
   // Loading state add kiya gaya hai
   const [isLoading, setIsLoading] = useState(false);
 
@@ -24,7 +24,7 @@ const Footer = () => {
   const handleNavigate = (e, path) => {
     e.preventDefault(); // Default link behavior ko rokna
     setIsLoading(true); // Loader dikhana
-    
+
     // Page ko turant top par scroll karna
     window.scrollTo(0, 0);
 
@@ -395,28 +395,47 @@ const Footer = () => {
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
 
-              <p className="text-sm text-gray-500 text-center md:text-left">
+              <p className="text-sm text-gray-100 text-center md:text-left">
                 © {new Date().getFullYear()} Eminent Audio Visual.
                 All Rights Reserved.
               </p>
 
               <div className="flex gap-6 text-sm">
+                <Link
+                  to="/terms"
+                  onClick={(e) => handleNavigate(e, "/terms")}
+                  className="text-gray-100 hover:text-blue-400 transition duration-300"
+                >
+                  Terms & Conditions
+                </Link>
+
+                <Link
+                  to="/shipping-delivery"
+                  onClick={(e) => handleNavigate(e, "/shipping-delivery")}
+                  className="text-gray-100 hover:text-blue-400 transition duration-300"
+                >
+                  Shipping & Delivery
+                </Link>
+
+                <Link
+                  to="/refund-returns-policy"
+                  onClick={(e) => handleNavigate(e, "/refund-returns-policy")}
+                  className="text-gray-100 hover:text-blue-400 transition duration-300"
+                >
+                  Refund and Returns Policy
+                </Link>
+
+
 
                 <Link
                   to="/privacy-policy"
                   onClick={(e) => handleNavigate(e, "/privacy-policy")}
-                  className="text-gray-500 hover:text-blue-400 transition duration-300"
+                  className="text-gray-100 hover:text-blue-400 transition duration-300"
                 >
                   Privacy Policy
                 </Link>
 
-                <Link
-                  to="/terms"
-                  onClick={(e) => handleNavigate(e, "/terms")}
-                  className="text-gray-500 hover:text-blue-400 transition duration-300"
-                >
-                  Terms & Conditions
-                </Link>
+
 
               </div>
 

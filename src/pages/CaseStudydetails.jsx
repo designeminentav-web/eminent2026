@@ -37,6 +37,7 @@ import demopune2 from "../assets/new/demopune2.JPG";
 
 import pss from "../assets/casestudy/pss.jpg";
 
+import modaltown from "../assets/casestudy/modaltown.png";
 
 
 //khalsa2
@@ -47,6 +48,45 @@ import pss from "../assets/casestudy/pss.jpg";
 
 // ✅ SARE 7 PROJECTS KI UNIQUE IDs AUR FORMATTED DATA
 const caseStudies = [
+   {
+    id: "gym-modal-town",
+   title: "EMINENT AV DELIVERS PROFESSIONAL MULTI-ZONE AUDIO INSTALLATION AT A 24x7 FITNESS CENTRE IN MODEL TOWN, NEW DELHI",
+
+    // ✅ LOCAL IMAGE LAGANE KA TARIKA:
+    // Agar aapne upar import kiya hai, toh bina quotes ke aise likhein:
+    // img: gymPaschimImg,
+
+    img: [modaltown],
+    details:
+  "Eminent AV successfully completed the design, installation and commissioning of a professional audio system at a large-format fitness centre in Model Town, New Delhi. This project marks another successful installation for the same gym franchise, following previous deployments at Kirti Nagar, Gurugram Sector 66 and Ashok Vihar.\n\n" +
+
+  "The client required a high-performance audio solution capable of supporting high-energy fitness activities across a multi-zone facility operating 24x7. Eminent AV was approached directly by the client and managed the complete project, from system design and equipment selection to installation and commissioning.\n\n" +
+
+  "Spread across approximately 10,000 sq. ft., the fitness centre required a carefully planned audio setup to deliver consistent sound coverage across its different workout areas. Considering the varied requirements of cardio, strength training and studio activities, the system was designed to provide balanced audio distribution along with powerful output and low-frequency reinforcement for high-energy workout sessions.\n\n" +
+
+  "THE SOLUTION & EQUIPMENT SELECTION\n\n" +
+
+  "Based on the project requirements, Eminent AV proposed a professional audio solution featuring products from Amate Audio (Spain) and Louis Martin (Italy). Amate Audio loudspeakers were selected to provide effective audio coverage across the fitness areas, while Louis Martin loudspeakers and subwoofers were integrated to support studio applications and low-frequency performance. The solution was complemented by professional amplifiers and digital signal processors to ensure efficient system operation and reliable audio performance.\n\n" +
+
+  "EQUIPMENT DESCRIPTION | QUANTITY\n" +
+  "• Amate Audio S6LP Loudspeakers | 14 Units\n" +
+  "• Louis Martin S218 Subwoofers | 3 Units\n" +
+  "• Louis Martin F8 Loudspeakers | 4 Units\n" +
+  "• Louis Martin S18 Subwoofer | 1 Unit\n" +
+  "• TTA 800 Amplifiers | 2 Units\n" +
+  "• TIP 1002 Amplifier | 1 Unit\n" +
+  "• TIP 1602 Amplifiers | 2 Units\n" +
+  "• DL2.6 Digital Signal Processors | 2 Units\n\n" +
+
+  "SYSTEM DESIGN & INSTALLATION\n\n" +
+
+  "Speaker placement and coverage design were customised to achieve effective sound distribution throughout the approximately 10,000 sq. ft. facility. The system was configured to deliver clear, consistent and powerful audio for daily fitness activities, instructor-led sessions and high-energy workout environments.\n\n" +
+
+  "PROJECT EXECUTION & OUTCOME\n\n" +
+
+  "Eminent AV handled the complete installation, system configuration and commissioning process, ensuring that the audio solution met the operational and performance requirements of the facility.\n\n" +
+
+  "The successful completion of this project further strengthens Eminent AV's ongoing relationship with the gym franchise and reflects the company's expertise in delivering integrated professional audio solutions for large-format commercial and fitness environments. With a combination of Amate Audio and Louis Martin products, the installation delivers a dependable audio solution designed for the demanding requirements of a 24x7 fitness facility." },
   {
     id: "gym-paschim-vihar",
     title: "EMINENT AV DELIVERS MULTI-ZONE GYM AUDIO INSTALLATION IN PASCHIM VIHAR",
@@ -166,7 +206,7 @@ const caseStudies = [
   {
     id: "gym-sk-fitness",
     title: "HIGH-ENERGY AUDIO DEPLOYMENT AT SK FITNESS, TAGORE GARDEN",
-    img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+    img: "",
     details:
       "SK Fitness, located in the bustling area of Tagore Garden, New Delhi, has been equipped with a massive, high-performance professional audio system. The fitness club required an electrifying and immersive soundscape capable of driving high-intensity workouts and energizing the entire gym floor.\n\n" +
       "To meet the demanding acoustic requirements of a large-format fitness space, the system was designed to deliver extreme clarity at high SPL (Sound Pressure Levels) along with deep, chest-thumping bass that is essential for modern fitness and cardio environments.\n\n" +

@@ -16,6 +16,12 @@ import c12 from "../assets/clint/c12.png";
 import c13 from "../assets/clint/c13.png";
 import c14 from "../assets/clint/c14.png";
 import c15 from "../assets/clint/c15.png";
+import c16 from "../assets/clint/c16.png";
+import c17 from "../assets/clint/c17.png";
+import who from "../assets/clint/who.jpg";
+import hs from "../assets/clint/hs.JPG";
+import lane from "../assets/clint/lane.JPG";
+import c18 from "../assets/clint/c18.JPG";
 
 const Clients = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -23,7 +29,7 @@ const Clients = () => {
   const clients = [
     c1, c2, c3, c4, c5,
     c6, c7, c8, c9, c10,
-    c11, c12, c13, c14, c15,
+    c11, c12, c13, c14, c15, c16, c17,who, hs,lane,c18,
   ];
 
   return (

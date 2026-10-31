@@ -41,6 +41,26 @@ import proae2 from "../assets/new/proae2.jpg";
 import proae3 from "../assets/new/proae3.jpeg";
 
 
+import lucknow1 from "../assets/new/lucknow1.jpg";
+import lucknow2 from "../assets/new/lucknow2.jpg";
+import lucknow3 from "../assets/new/lucknow3.jpg";
+import lucknow4 from "../assets/new/lucknow4.jpg";
+
+
+
+import hydrabd4 from "../assets/new/hydrabd4.JPEG";
+import hydrabd2 from "../assets/new/hydrabd2.PNG";
+import hydrabd3 from "../assets/new/hydrabd3.PNG";
+import hydrabd1 from "../assets/new/hydrabd1.PNG";
+
+
+
+import palm2025 from "../assets/new/palm2025.JPG";
+import palm22025 from "../assets/new/palm22025.JPG";
+import palm32025 from "../assets/new/palm32025.png";
+
+
+
 
 const BlogDetails = () => {
   const navigate = useNavigate();
@@ -59,11 +79,13 @@ const BlogDetails = () => {
       "pro-audio-brand-award": [palm2026, palm1, palm2, palm3],
       "line-array-vs-column-array": [chennai2026, chennai1, chennai2, chennai3],
       "celebrating-10-years": [eav3,eav2, eav1,eav10 ],
-      "palm-expo-2025": [chennai3,],
+      "palm-expo-2025": [palm2025,palm22025,palm32025,palm22025],
       "pune-event-2025": [demopune2,demopune1,demopune3,demopune4],
       "gujrat-demo": [t1,t2,t3,t4],
-      "prowave-expo-hyderabad-2026":[demopune2,demopune1,demopune3,demopune4],
-      "proae Show-ahmedabad-2026": [ proae, proae1,proae2,proae3]
+      "prowave-expo-hyderabad-2026":[hydrabd4,hydrabd3,hydrabd2,hydrabd1],
+      "proae Show-ahmedabad-2026": [ proae, proae1,proae2,proae3],
+      "live-demo-show-lucknow" : [lucknow1,lucknow3,lucknow2,lucknow4],
+      
 
       
       
