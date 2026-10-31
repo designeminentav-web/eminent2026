@@ -19,9 +19,9 @@ import c15 from "../assets/clint/c15.png";
 import c16 from "../assets/clint/c16.png";
 import c17 from "../assets/clint/c17.png";
 import who from "../assets/clint/who.jpg";
-import hs from "../assets/clint/hs.JPG";
-import lane from "../assets/clint/lane.JPG";
-import c18 from "../assets/clint/c18.JPG";
+import hs from "../assets/clint/hs.jpg";
+import lane from "../assets/clint/lane.jpg";
+import c18 from "../assets/clint/c18.jpg";
 
 const Clients = () => {
   const [isPaused, setIsPaused] = useState(false);
