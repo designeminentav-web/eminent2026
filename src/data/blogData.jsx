@@ -7,8 +7,8 @@ import t1 from "../assets/new/t1.jpg";
 import proae from "../assets/new/proae.jpeg";
 import proae1 from "../assets/new/proae1.jpeg";
 import lucknow1 from "../assets/new/lucknow1.jpg";
-import hydrabd4 from "../assets/new/hydrabd4.JPEG";
-import palm2025 from "../assets/new/palm2025.JPG";
+import hydrabd4 from "../assets/new/hydrabd4.jpeg";
+import palm2025 from "../assets/new/palm2025.jpg";
 
 
 proae1

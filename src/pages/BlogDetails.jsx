@@ -48,14 +48,14 @@ import lucknow4 from "../assets/new/lucknow4.jpg";
 
 
 
-import hydrabd4 from "../assets/new/hydrabd4.JPEG";
+import hydrabd4 from "../assets/new/hydrabd4.jpeg";
 import hydrabd2 from "../assets/new/hydrabd2.png";
 import hydrabd3 from "../assets/new/hydrabd3.png";
 import hydrabd1 from "../assets/new/hydrabd1.png";
 
 
 
-import palm2025 from "../assets/new/palm2025.JPG";
+import palm2025 from "../assets/new/palm2025.jpg";
 import palm22025 from "../assets/new/palm22025.jpg";
 import palm32025 from "../assets/new/palm32025.png";
 
