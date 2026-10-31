@@ -3,7 +3,7 @@ import palm2026 from "../assets/new/palm2026.JPG";
 import pune from "../assets/new/pune.JPG";
 import eav10 from "../assets/new/eav10.JPG";
 import demopune2 from "../assets/new/demopune2.JPG";
-import t1 from "../assets/new/t1.JPG";
+import t1 from "../assets/new/t1.jpg";
 import proae from "../assets/new/proae.jpeg";
 import proae1 from "../assets/new/proae1.jpeg";
 import lucknow1 from "../assets/new/lucknow1.jpg";
