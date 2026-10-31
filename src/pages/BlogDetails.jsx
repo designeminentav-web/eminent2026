@@ -42,20 +42,20 @@ import proae3 from "../assets/new/proae3.jpeg";
 
 
 import lucknow1 from "../assets/new/lucknow1.jpg";
-import lucknow2 from "../assets/new/lucknow2.jpg";
-import lucknow3 from "../assets/new/lucknow3.jpg";
+import lucknow2 from "../assets/new/lucknow2.JPG";
+import lucknow3 from "../assets/new/lucknow3.JPG";
 import lucknow4 from "../assets/new/lucknow4.jpg";
 
 
 
-import hydrabd4 from "../assets/new/hydrabd4.JPEG";
+import hydrabd4 from "../assets/new/hydrabd4.jpeg";
 import hydrabd2 from "../assets/new/hydrabd2.PNG";
 import hydrabd3 from "../assets/new/hydrabd3.PNG";
 import hydrabd1 from "../assets/new/hydrabd1.PNG";
 
 
 
-import palm2025 from "../assets/new/palm2025.JPG";
+import palm2025 from "../assets/new/palm2025.jpg";
 import palm22025 from "../assets/new/palm22025.JPG";
 import palm32025 from "../assets/new/palm32025.png";
 
